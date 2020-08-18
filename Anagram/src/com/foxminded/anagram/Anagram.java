@@ -1,4 +1,4 @@
-package Anagram;
+package com.foxminded.anagram;
 
 import java.util.HashMap;
 import java.util.Map;

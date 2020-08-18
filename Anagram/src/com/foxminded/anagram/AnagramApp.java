@@ -1,7 +1,8 @@
-package Anagram;
+package com.foxminded.anagram;
 
 import java.util.Scanner;
-import Anagram.Anagram;
+
+import com.foxminded.anagram.Anagram;
 
 public class AnagramApp {
 	public static void main(String [] args) {
