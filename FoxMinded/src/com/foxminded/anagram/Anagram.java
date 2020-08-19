@@ -1,8 +1,13 @@
 package com.foxminded.anagram;
 
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+
 
 public class Anagram {
 	public String process(String string) {
@@ -87,3 +92,26 @@ public class Anagram {
 		return finalString;
 	}
 }
+
+class AnagramTest {
+	Anagram anagram = new Anagram();
+	@Test
+	void processTest() {
+		
+		String expected = "olleH";
+		String actual = anagram.process("Hello");
+		assertEquals(expected,actual);
+		
+	}
+	@Test
+	void insertNonLetterElementTest(){
+		char [] oldArray = {'a','b','c'};
+		Map.Entry<Integer, Character>entry = new AbstractMap.SimpleEntry<Integer, Character>(1, 'x');
+		char [] expected = {'a','x','b','c'};
+		char [] actual = anagram.insertNonLetterElement(oldArray, entry);
+		System.out.println(anagram.insertNonLetterElement(oldArray, entry));
+		assertEquals(expected,actual);
+		
+	}
+}
+
