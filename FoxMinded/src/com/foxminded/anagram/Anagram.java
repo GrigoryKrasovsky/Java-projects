@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
 
 public class Anagram {
 	public String process(String string) {
+		if (string == null) {
+			throw new IllegalArgumentException("Input cannot be null type");
+		}
 		String finalString ="";
 		char [] resultArray;
 		HashMap <Integer, Character> mapOfNonLetters = new HashMap<>();
@@ -32,7 +35,7 @@ public class Anagram {
 			finalString+=stringFromArray;
 			}
 		}
-		return finalString;
+				return finalString;
 	}
 		
 	public static char [] insertNonLetterElement(char [] oldArray, Map.Entry<Integer, Character>entry) {
@@ -93,25 +96,4 @@ public class Anagram {
 	}
 }
 
-class AnagramTest {
-	Anagram anagram = new Anagram();
-	@Test
-	void processTest() {
-		
-		String expected = "olleH";
-		String actual = anagram.process("Hello");
-		assertEquals(expected,actual);
-		
-	}
-	@Test
-	void insertNonLetterElementTest(){
-		char [] oldArray = {'a','b','c'};
-		Map.Entry<Integer, Character>entry = new AbstractMap.SimpleEntry<Integer, Character>(1, 'x');
-		char [] expected = {'a','x','b','c'};
-		char [] actual = anagram.insertNonLetterElement(oldArray, entry);
-		System.out.println(anagram.insertNonLetterElement(oldArray, entry));
-		assertEquals(expected,actual);
-		
-	}
-}
 
