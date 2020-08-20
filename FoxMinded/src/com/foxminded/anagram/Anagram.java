@@ -14,7 +14,7 @@ public class Anagram {
 		if (string == null) {
 			throw new IllegalArgumentException("Input cannot be null type");
 		}
-		String finalString ="";
+		StringBuilder finalStringBuilder =new StringBuilder("");
 		char [] resultArray;
 		HashMap <Integer, Character> mapOfNonLetters = new HashMap<>();
 		String[] stringOfReversedWords = new String [splitString(string).length];
@@ -29,12 +29,13 @@ public class Anagram {
 			String stringFromArray = new String(resultArray);
 			
 			if (index < splitString(string).length-1) {
-			finalString+=stringFromArray;
-			finalString+=" ";
+				finalStringBuilder.append(stringFromArray);
+				finalStringBuilder.append(" ");
 			}else {
-			finalString+=stringFromArray;
+				finalStringBuilder.append(stringFromArray);
 			}
 		}
+				String finalString=finalStringBuilder.toString();
 				return finalString;
 	}
 		
@@ -53,10 +54,10 @@ public class Anagram {
 	}
 
 	public static char [] reverseString(String initialString) {
-		String reversedString = "";
+		StringBuilder reversedString = new StringBuilder("");
 		for (int index = initialString.length()-1; index>-1;index--) {
 			if (Character.isLetter(initialString.charAt(index))) {
-				reversedString+=initialString.charAt(index);
+				reversedString.append(initialString.charAt(index));
 			}
 		}
 		char [] reversedArray = new char [reversedString.length()];
@@ -82,14 +83,14 @@ public class Anagram {
 		return splitString;
 	}
 	
-	public static String finalString (String [] inputString) {
-		String finalString = "";
+	public static StringBuilder finalString (String [] inputString) {
+		StringBuilder finalString = new StringBuilder("");
 		for (int index = 0; index<inputString.length;index++) {
 			if (index < inputString.length-1) {
-				finalString += inputString[index];
-				finalString +=" ";
+				finalString.append(inputString[index]);
+				finalString.append(" ");
 			}else {
-				finalString += inputString[index];
+				finalString.append(inputString[index]);
 			}
 		}
 		return finalString;
