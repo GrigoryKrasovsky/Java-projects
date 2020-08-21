@@ -7,35 +7,30 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-
-
 public class Anagram {
 	public String process(String string) {
 		if (string == null) {
 			throw new IllegalArgumentException("Input cannot be null type");
 		}
-		StringBuilder finalStringBuilder =new StringBuilder("");
+		StringBuilder stringBuilder =new StringBuilder("");
 		char [] resultArray;
 		HashMap <Integer, Character> mapOfNonLetters = new HashMap<>();
-		String[] stringOfReversedWords = new String [splitString(string).length];
-		
+				
 		for (int index = 0; index < splitString(string).length; index++) {
-			mapOfNonLetters = getDictionaryOfNonLetterElements(splitString(string)[index]);
+			mapOfNonLetters = getMapOfNonLetterElements(splitString(string)[index]);
 			resultArray = reverseString(splitString(string)[index]);
 			for (Map.Entry<Integer,Character>entry:mapOfNonLetters.entrySet()) {
 				resultArray = insertNonLetterElement(resultArray,entry);
 			}
-			
 			String stringFromArray = new String(resultArray);
-			
 			if (index < splitString(string).length-1) {
-				finalStringBuilder.append(stringFromArray);
-				finalStringBuilder.append(" ");
+				stringBuilder.append(stringFromArray);
+				stringBuilder.append(" ");
 			}else {
-				finalStringBuilder.append(stringFromArray);
+				stringBuilder.append(stringFromArray);
 			}
 		}
-				String finalString=finalStringBuilder.toString();
+				String finalString=stringBuilder.toString();
 				return finalString;
 	}
 		
@@ -67,7 +62,7 @@ public class Anagram {
 		return reversedArray;
 	}
 
-	public static HashMap getDictionaryOfNonLetterElements(String initialString) {
+	public static HashMap getMapOfNonLetterElements(String initialString) {
 		HashMap<Integer, Character> mapOfNonLetters = new HashMap<>();
 		for(int index=0;index < initialString.length();index++) {
 			if (Character.isLetter(initialString.charAt(index))){

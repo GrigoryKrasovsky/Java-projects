@@ -15,8 +15,7 @@ import com.foxminded.anagram.Anagram;
 
 class AnagramTest {
 	Anagram anagram = new Anagram();
-	@Rule
-    public ExpectedException thrown= ExpectedException.none();
+	
 	@Test
 	void singleWordTest() {
 		
