@@ -1,42 +1,27 @@
 package com.foxminded.anagramTest;
-
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.AbstractMap;
-import java.util.Map;
-
-
-import org.junit.Rule;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import com.foxminded.anagram.Anagram;
 
 class AnagramTest {
 	Anagram anagram = new Anagram();
 	
-	@Test
-	void singleWordTest() {
-		
-		String expected = "olleH";
-		String actual = anagram.process("Hello");
-		assertEquals(expected,actual);
-		
+	@ParameterizedTest
+	@MethodSource("provideStringForAnagramTest")
+	void testAnagrams(String input, String expected) {
+		assertEquals(expected, anagram.process(input));
 	}
-	@Test
-	void twoWordsTest() {
-		
-		String expected = "olleH dlrow";
-		String actual = anagram.process("Hello world");
-		assertEquals(expected,actual);
-	}
-	@Test
-	void wordsAndNonLettersTest() {
-		
-		String expected = "olleH123 dlr@ow!";
-		String actual = anagram.process("Hello123 wor@ld!");
-		assertEquals(expected,actual);
+	private static Stream <Arguments> provideStringForAnagramTest(){
+		return Stream.of(
+				Arguments.of("Hello world","olleH dlrow"),
+				Arguments.of("Hello123 wor@ld!","olleH123 dlr@ow!"),
+				Arguments.of("World", "dlroW")
+				);
 	}
 	
 	@Test
@@ -45,7 +30,5 @@ class AnagramTest {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 	    anagram.process(null);
 	  });
-	 
 	}
-
 }
