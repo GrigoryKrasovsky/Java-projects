@@ -1,89 +1,38 @@
 package com.foxminded.anagram;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class Anagram {
 	public String process(String string) {
-		String finalString ="";
-		char [] resultArray;
-		HashMap <Integer, Character> mapOfNonLetters = new HashMap<>();
-		String[] stringOfReversedWords = new String [splitString(string).length];
-		
-		for (int index = 0; index < splitString(string).length; index++) {
-			mapOfNonLetters = getDictionaryOfNonLetterElements(splitString(string)[index]);
-			resultArray = reverseString(splitString(string)[index]);
-			for (Map.Entry<Integer,Character>entry:mapOfNonLetters.entrySet()) {
-				resultArray = insertNonLetterElement(resultArray,entry);
-			}
-			
-			String stringFromArray = new String(resultArray);
-			
-			if (index < splitString(string).length-1) {
-			finalString+=stringFromArray;
-			finalString+=" ";
-			}else {
-			finalString+=stringFromArray;
-			}
+		if (string == null) {
+			throw new IllegalArgumentException("Text cannot be null");
 		}
-		return finalString;
-	}
-		
-	public static char [] insertNonLetterElement(char [] oldArray, Map.Entry<Integer, Character>entry) {
-		char [] newArray = new char[oldArray.length+1];			
-		for (int index = 0; index<newArray.length; index++) {
-			if (index < entry.getKey()) {
-			newArray[index]=oldArray[index];
-			}else if (index == entry.getKey()) {
-			newArray[index] = entry.getValue();
-			}else {
-			newArray[index] = oldArray[index-1];
-			}
+		StringJoiner joiner = new StringJoiner(" ");
+		for(String word:string.split(" ")) {
+			String reversedWord = new String(reverse(word));
+			joiner.add(reversedWord);
 		}
-		return newArray;
-	}
-
-	public static char [] reverseString(String initialString) {
-		String reversedString = "";
-		for (int index = initialString.length()-1; index>-1;index--) {
-			if (Character.isLetter(initialString.charAt(index))) {
-				reversedString+=initialString.charAt(index);
-			}
-		}
-		char [] reversedArray = new char [reversedString.length()];
-		for (int index = 0; index < reversedString.length(); index++) {
-			reversedArray[index] = reversedString.charAt(index);
-		}
-		return reversedArray;
-	}
-
-	public static HashMap getDictionaryOfNonLetterElements(String initialString) {
-		HashMap<Integer, Character> mapOfNonLetters = new HashMap<>();
-		for(int index=0;index < initialString.length();index++) {
-			if (Character.isLetter(initialString.charAt(index))){
-			}else {mapOfNonLetters.put(index, initialString.charAt(index));
-			}
-		}
-		return mapOfNonLetters;
+		return joiner.toString();
 	}
 	
-	public static String [] splitString (String string) {
-		String [] splitString;
-		splitString = string.split(" ");
-		return splitString;
-	}
-	
-	public static String finalString (String [] inputString) {
-		String finalString = "";
-		for (int index = 0; index<inputString.length;index++) {
-			if (index < inputString.length-1) {
-				finalString += inputString[index];
-				finalString +=" ";
-			}else {
-				finalString += inputString[index];
+	public char [] reverse(String word) {
+		char [] chars = new char [word.length()];
+		int leftIndex = 0;
+		int rightIndex = word.length()-1;
+		while (leftIndex <= rightIndex) {
+			if(!Character.isLetter(word.charAt(leftIndex))&Character.isLetter(word.charAt(rightIndex))){
+				chars[leftIndex]= word.charAt(leftIndex);
+				leftIndex++;
+			}else if(!Character.isLetter(word.charAt(rightIndex))&Character.isLetter(word.charAt(leftIndex))){
+				chars[rightIndex]= word.charAt(rightIndex);
+				rightIndex--;
+			}else if (Character.isLetter(word.charAt(leftIndex))&Character.isLetter(word.charAt(rightIndex))) {
+				chars[leftIndex] = word.charAt(rightIndex);
+				chars[rightIndex] = word.charAt(leftIndex);
+				leftIndex++;
+				rightIndex--;
 			}
-		}
-		return finalString;
+		}	
+		return chars;
 	}
 }
