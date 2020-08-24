@@ -30,7 +30,6 @@ public class Anagram {
 				}else if(!Character.isLetter(word.charAt(rightIndex))&Character.isLetter(word.charAt(leftIndex))){
 					chars[rightIndex]= word.charAt(rightIndex);
 					rightIndex--;
-				
 				}else if (Character.isLetter(word.charAt(leftIndex))&Character.isLetter(word.charAt(rightIndex))) {
 					chars[leftIndex] = word.charAt(rightIndex);
 					chars[rightIndex] = word.charAt(leftIndex);
