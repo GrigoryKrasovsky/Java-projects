@@ -9,7 +9,7 @@ public class CalculatorTest {
 	@Test
 	void testExpectedException() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-		    calculator.process(null);
+		    calculator.process("a word", "another word with numbers 123");
 		});
 	}
 }
