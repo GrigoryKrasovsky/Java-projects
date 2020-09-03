@@ -33,7 +33,16 @@ public class Calculator {
 		
 		StringBuilder builder = new StringBuilder("");
 		StringJoiner joiner = new StringJoiner("");
-		joiner.add("_"+ divident+"|"+divisor+"\n");
+		if(Integer.parseInt(divident)<Integer.parseInt(divisor)) {
+			joiner.add(divident+"|"+divisor+"\n");
+			joiner.add(fill((divident).length(),' ')+"|");
+			joiner.add(fill((divisor).length(),'-')+"\n");
+			joiner.add(fill(divident.length(),' ')+"|"+"0\n");
+		}
+		else{
+			joiner.add("_"+ divident+"|"+divisor+"\n");
+		}
+		
 		boolean firstLocalDivident = false;
 		
 		int index =0;
@@ -66,9 +75,10 @@ public class Calculator {
 				joiner.add(fill(index-String.valueOf(intermediate).length()+1, ' ')+fill(String.valueOf(intermediate).length(), '-')+"\n");
 				}
 				builder.delete(0, builder.length());
-				builder.append(String.valueOf(localDivident));	
-			}else if (localDivident<Integer.parseInt(divisor)&index==divident.length()){
-				joiner.add(fill(index-String.valueOf(localDivident).length(), ' ')+" "+ String.valueOf(localDivident));
+				builder.append(String.valueOf(localDivident));
+			}
+				if (index==divident.length()&Integer.parseInt(divident)>=Integer.parseInt(divisor)) {
+					joiner.add(fill(index-String.valueOf(localDivident).length(), ' ')+" "+ String.valueOf(localDivident));
 			}
 		}
 		return joiner.toString();

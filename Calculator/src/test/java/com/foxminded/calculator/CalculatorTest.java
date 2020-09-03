@@ -18,7 +18,7 @@ class CalculatorTest {
 		assertEquals(expected, calculator.divide("31","3"));
 	}
 	void shouldVerifyDevidedNormalDivision() {
-		String expected ="_31|3\n 3 |--\n - |10\n 1";
-		assertEquals(expected, calculator.divide("31","3"));
+		String expected ="_3222|313/n 313 |---/n --- |10/n   92";
+		assertEquals(expected, calculator.divide("322","313"));
 	}
 }
