@@ -6,28 +6,17 @@ import java.util.StringJoiner;
 public class Calculator {
 	public String process(String divident, String divisor) {
 		for (int index = 0; index < divident.length(); index++) {
-			if (!Character.isDigit(divident.charAt(index))||!Character.isDigit(divisor.charAt(index))) {
+			if (!Character.isDigit(divident.charAt(index))) {
+				throw new IllegalArgumentException("Only numbers can be processed");
+			}
+		}
+		for (int index = 0; index < divisor.length(); index++) {
+			if (!Character.isDigit(divisor.charAt(index))) {
 				throw new IllegalArgumentException("Only numbers can be processed");
 			}
 		}
 		
-		
-		char [] spacing = new char[divident.length()];
-		for (int index = 0;index<spacing.length;index++) {
-			spacing[index]=' ';
-		}
-		String strspc = String.valueOf(spacing);
-		
-		char [] divisorSpacing = new char[divisor.length()];
-		for (int index = 0;index<divisorSpacing.length;index++) {
-			divisorSpacing[index]='-';
-		}
-		String dvsrSpc = String.valueOf(divisorSpacing);
-	
-		StringJoiner joiner = new StringJoiner("");
-		
-		
-		return joiner.toString();
+		return divide(divident,divisor);
 	}
 	public String divide (String divident, String divisor) {
 		
