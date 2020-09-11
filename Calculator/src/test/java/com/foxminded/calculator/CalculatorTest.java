@@ -1,36 +1,139 @@
 package com.foxminded.calculator;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 	Calculator calculator = new Calculator();
-
+	
 	@Test
 	void testExpectedException() {
-		assertThrows(IllegalArgumentException.class, () -> {
-		    calculator.process("1231as", "another one with numbers 123");
-		});
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+	    Calculator.process(1,0);
+	  });
 	}
 	@Test
-	void shouldVerifyDevidedSmallerDivision() {
-		String expected ="_31|3\n 3 |--\n - |10\n  1";
-		assertEquals(expected, calculator.process("31","3"));
+	void shouldVerifyCorrectNumbersOneNegative(){
+		String expected ="-25 4 -6 -1 -25 -24 ";
+		assertEquals(expected, Calculator.process(-25, 4).getAllValues());
+	}
+	
+	@Test
+	void shouldVerifyCorrectNumbersAnotherNegative(){
+		String expected ="25 -4 -6 1 25 24 ";
+		assertEquals(expected, Calculator.process(25, -4).getAllValues());
 	}
 	@Test
-	void shouldVerifyDevidedNormalDivision() {
-		String expected ="_3222|313\n 313 |---\n --- |10\n   92";
-		assertEquals(expected, calculator.process("3222","313"));
+	void shouldVerifyCorrectNumbersBothNegative(){
+		String expected ="-25 -4 6 -1 -25 -24 ";
+		assertEquals(expected, Calculator.process(-25, -4).getAllValues());
 	}
 	@Test
-	void shouldVerifyDevidedLargeDivision() {
-		String expected ="_68374621|34213\n 34213   |-----\n -----   |1998\n_341616\n 307917\n ------\n _336992\n"+
-	"  307917\n  ------\n  _290751\n   273704\n   ------\n    17047";
-		assertEquals(expected, calculator.process("68374621","34213"));
+	void shouldVerifyLargeNumbersDivision(){
+		String expected ="389471 523 744 359 3894 3661 2337 2092 2451 2092 ";
+		assertEquals(expected, Calculator.process(389471, 523).getAllValues());
 	}
 	@Test
-	void shouldVerifyDividentSmallerThanDivisor() {
-		String expected = "1|2\n |-\n |0\n";
-		assertEquals(expected, calculator.process("1","2"));
+	void shouldVerifySmallerDividendDivision(){
+		String expected ="1 523 0 1 0 0 ";
+		assertEquals(expected, Calculator.process(1, 523).getAllValues());
+	}
+	@Test
+	void shouldVerifyClassicFormatterIfAllPositive(){
+		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		String expected ="_225|15\n" + 
+				" 15 |--\n" + 
+				" -- |15\n" + 
+				" _75\n" + 
+				"  75\n" + 
+				"  --\n" + 
+				"   0";
+		assertEquals(expected, format.format(Calculator.process(225, 15)));
+	}
+	@Test
+	void shouldVerifyClassicFormatterIfDividendNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		String expected ="_-225|15\n" + 
+				" -15 |--\n" + 
+				"  -- |-15\n" + 
+				" _-75\n" + 
+				"  -75\n" + 
+				"   --\n" + 
+				"   0";
+		assertEquals(expected, format.format(Calculator.process(-225, 15)));
+	}
+	@Test
+	void shouldVerifyClassicFormatterIfDivisorNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		String expected ="_225|-15\n" + 
+				" 15 |--\n" + 
+				" -- |-15\n" + 
+				" _75\n" + 
+				"  75\n" + 
+				"  --\n" + 
+				"   0";
+		assertEquals(expected, format.format(Calculator.process(225,-15)));
+	}
+	@Test
+	void shouldVerifyClassicFormatterIfBothNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		String expected ="_-225|-15\n" + 
+				" -15 |--\n" + 
+				"  -- |15\n" + 
+				" _-75\n" + 
+				"  -75\n" + 
+				"   --\n" + 
+				"   0";
+		assertEquals(expected, format.format(Calculator.process(-225,-15)));
+	}
+	@Test
+	void shouldVerifyDutchFormatterIfBothNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		String expected ="-15/_-225\\15\n" + 
+				"     -15\n" + 
+				"      --\n" + 
+				"     _-75\n" + 
+				"      -75\n" + 
+				"      --\n" + 
+				"       0";
+		assertEquals(expected, format.format(Calculator.process(-225,-15)));
+	}
+	@Test
+	void shouldVerifyDutchFormatterIfDivisorNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		String expected ="-15/_225\\-15\n" + 
+				"     15\n" + 
+				"     --\n" + 
+				"     _75\n" + 
+				"      75\n" + 
+				"      --\n" + 
+				"       0";
+		assertEquals(expected, format.format(Calculator.process(225,-15)));
+	}
+	@Test
+	void shouldVerifyDutchFormatterIfAllPositive(){
+		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		String expected ="15/_225\\15\n" + 
+				"    15\n" + 
+				"    --\n" + 
+				"    _75\n" + 
+				"     75\n" + 
+				"     --\n" + 
+				"      0";
+		assertEquals(expected, format.format(Calculator.process(225, 15)));
+	}
+	@Test
+	void shouldVerifyDutchFormatterIfDividendNegative(){
+		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		String expected ="15/_-225\\-15\n" + 
+				"    -15\n" + 
+				"     --\n" + 
+				"    _-75\n" + 
+				"     -75\n" + 
+				"     --\n" + 
+				"      0";
+		assertEquals(expected, format.format(Calculator.process(-225, 15)));
 	}
 }

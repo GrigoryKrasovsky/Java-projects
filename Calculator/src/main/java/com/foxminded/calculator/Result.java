@@ -33,5 +33,17 @@ public class Result {
 	public List<Step> getSteps(){
 		return steps;
 	}
+	public String getAllValues() {
+		StringBuilder allValues = new StringBuilder();
+		allValues.append(dividend+" ");
+		allValues.append(divisor+" ");
+		allValues.append(quotient+" ");
+		allValues.append(remainder+" ");
+		for (Step step:steps) {
+			allValues.append(step.getLocalDividend()+" ");
+			allValues.append(step.getIntermediate()+" ");
+		}
+		return allValues.toString();
+	}
 
 }
