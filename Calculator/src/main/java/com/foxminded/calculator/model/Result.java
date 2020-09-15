@@ -1,4 +1,4 @@
-package com.foxminded.calculator;
+package com.foxminded.calculator.model;
 
 import java.util.List;
 

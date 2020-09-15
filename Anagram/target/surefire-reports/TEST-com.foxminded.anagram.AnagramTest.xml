@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.foxminded.anagram.AnagramTest" time="0.066" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.foxminded.anagram.AnagramTest" time="0.064" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\3143~1\AppData\Local\Temp\surefire17419497834532338827\surefirebooter17104678324391565822.jar C:\Users\Гриша\AppData\Local\Temp\surefire17419497834532338827 2020-08-29T16-43-49_264-jvmRun1 surefire3677580120285583276tmp surefire_04097200723875621495tmp"/>
+    <property name="sun.java.command" value="C:\Users\3143~1\AppData\Local\Temp\surefire17669169343849842278\surefirebooter12665607891495874434.jar C:\Users\Гриша\AppData\Local\Temp\surefire17669169343849842278 2020-09-11T17-15-57_828-jvmRun1 surefire17449121932940506644tmp surefire_016884962679951384464tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Гриша\git\repository2\Anagram\target\test-classes;C:\Users\Гриша\git\repository2\Anagram\target\classes;C:\Users\Гриша\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.2\junit-jupiter-engine-5.5.2.jar;C:\Users\Гриша\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Гриша\.m2\repository\org\junit\platform\junit-platform-engine\1.5.2\junit-platform-engine-1.5.2.jar;C:\Users\Гриша\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.2\junit-jupiter-api-5.5.2.jar;C:\Users\Гриша\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Гриша\.m2\repository\org\junit\platform\junit-platform-commons\1.5.2\junit-platform-commons-1.5.2.jar;C:\Users\Гриша\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.4.2\junit-jupiter-params-5.4.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\3143~1\AppData\Local\Temp\surefire17419497834532338827\surefirebooter17104678324391565822.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\3143~1\AppData\Local\Temp\surefire17669169343849842278\surefirebooter12665607891495874434.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
@@ -48,15 +48,15 @@
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Program Files (x86)\cmder\vendor\conemu-maximus5;C:\Program Files (x86)\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Java\maven\bin;C:\tomcat\bin;D:\Git\cmd;C:\Program Files\PuTTY\;D:\Python;D:\Python\Library\mingw-w64\bin;D:\Python\Library\usr\bin;D:\Python\Library\bin;D:\Python\Scripts;C:\Users\Гриша\AppData\Local\Microsoft\WindowsApps;D:\heroku\bin;C:\Users\Гриша\AppData\Local\GitHubDesktop\bin;D:\Git\mingw64\bin;D:\Git\usr\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-14.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Program Files (x86)\cmder\vendor\conemu-maximus5;C:\Program Files (x86)\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Java\jdk-14.0.2\bin;C:\Program Files\Java\maven\bin;C:\tomcat\bin;D:\Git\cmd;C:\Program Files\PuTTY\;C:\Users\Гриша\AppData\Local\Microsoft\WindowsApps;D:\heroku\bin;C:\Users\Гриша\AppData\Local\GitHubDesktop\bin;D:\Git\mingw64\bin;D:\Git\usr\bin;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="java.vm.version" value="14.0.2+12-46"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="testAnagrams{String, String}[1]" classname="com.foxminded.anagram.AnagramTest" time="0.029"/>
-  <testcase name="testAnagrams{String, String}[2]" classname="com.foxminded.anagram.AnagramTest" time="0.001"/>
-  <testcase name="testAnagrams{String, String}[3]" classname="com.foxminded.anagram.AnagramTest" time="0.001"/>
+  <testcase name="testAnagrams{String, String}[1]" classname="com.foxminded.anagram.AnagramTest" time="0.027"/>
+  <testcase name="testAnagrams{String, String}[2]" classname="com.foxminded.anagram.AnagramTest" time="0"/>
+  <testcase name="testAnagrams{String, String}[3]" classname="com.foxminded.anagram.AnagramTest" time="0"/>
   <testcase name="testExpectedException" classname="com.foxminded.anagram.AnagramTest" time="0.002"/>
 </testsuite>

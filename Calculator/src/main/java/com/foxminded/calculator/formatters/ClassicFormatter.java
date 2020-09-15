@@ -1,4 +1,8 @@
-package com.foxminded.calculator;
+package com.foxminded.calculator.formatters;
+
+import com.foxminded.calculator.Calculator;
+import com.foxminded.calculator.model.Result;
+import com.foxminded.calculator.model.Step;
 
 public class ClassicFormatter implements Formatter {
 
@@ -9,7 +13,7 @@ public class ClassicFormatter implements Formatter {
 		if (result.getDividend()<0) {
 			indentIfNegative = " ";
 		}
-		int lastDigitIndex=Calculator.findLength(result.getSteps().get(0).getIntermediate());
+		int lastDigitIndex= Calculator.findLength(result.getSteps().get(0).getIntermediate());
 		
 		output.append("_"+result.getDividend()+"|"+result.getDivisor()+"\n");
 		output.append(" "+ result.getSteps().get(0).getIntermediate());
@@ -31,7 +35,6 @@ public class ClassicFormatter implements Formatter {
 			}
 		}
 		output.append("|"+result.getQuotient()+"\n");
-		//"лесенка"
 		for (int i = 1; i<result.getSteps().size();i++) {
 			Step step=result.getSteps().get(i);
 			if(result.getSteps().get(i).getIntermediate()==0) {
@@ -59,7 +62,7 @@ public class ClassicFormatter implements Formatter {
 			}
 			output.append("\n");
 		}
-		// остаток
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		for (int i=0;i<Calculator.findLength(result.getDividend())-Calculator.findLength(result.getRemainder())+1;i++) {
 			
 			output.append(" ");

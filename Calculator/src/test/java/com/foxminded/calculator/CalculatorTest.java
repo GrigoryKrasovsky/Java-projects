@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.calculator.formatters.Formatter;
+import com.foxminded.calculator.formatters.FormatterFactory;
+
 class CalculatorTest {
 	Calculator calculator = new Calculator();
 	
@@ -42,7 +45,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyClassicFormatterIfAllPositive(){
-		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		Formatter format = FormatterFactory.get("Classic");
 		String expected ="_225|15\n" + 
 				" 15 |--\n" + 
 				" -- |15\n" + 
@@ -54,7 +57,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyClassicFormatterIfDividendNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		Formatter format = FormatterFactory.get("Classic");
 		String expected ="_-225|15\n" + 
 				" -15 |--\n" + 
 				"  -- |-15\n" + 
@@ -66,7 +69,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyClassicFormatterIfDivisorNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		Formatter format = FormatterFactory.get("Classic");
 		String expected ="_225|-15\n" + 
 				" 15 |--\n" + 
 				" -- |-15\n" + 
@@ -78,7 +81,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyClassicFormatterIfBothNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Classic").createFormatter();
+		Formatter format = FormatterFactory.get("Classic");
 		String expected ="_-225|-15\n" + 
 				" -15 |--\n" + 
 				"  -- |15\n" + 
@@ -90,7 +93,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfBothNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		Formatter format = FormatterFactory.get("Dutch");
 		String expected ="-15/_-225\\15\n" + 
 				"     -15\n" + 
 				"      --\n" + 
@@ -102,7 +105,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfDivisorNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		Formatter format = FormatterFactory.get("Dutch");
 		String expected ="-15/_225\\-15\n" + 
 				"     15\n" + 
 				"     --\n" + 
@@ -114,7 +117,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfAllPositive(){
-		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		Formatter format = FormatterFactory.get("Dutch");
 		String expected ="15/_225\\15\n" + 
 				"    15\n" + 
 				"    --\n" + 
@@ -126,7 +129,7 @@ class CalculatorTest {
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfDividendNegative(){
-		Formatter format = CalculatorApp.getFormatterFactory("Dutch").createFormatter();
+		Formatter format = FormatterFactory.get("Dutch");
 		String expected ="15/_-225\\-15\n" + 
 				"    -15\n" + 
 				"     --\n" + 

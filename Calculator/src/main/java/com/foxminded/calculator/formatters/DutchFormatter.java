@@ -1,4 +1,7 @@
-package com.foxminded.calculator;
+package com.foxminded.calculator.formatters;
+
+import com.foxminded.calculator.Calculator;
+import com.foxminded.calculator.model.Result;
 
 public class DutchFormatter implements Formatter {
 
