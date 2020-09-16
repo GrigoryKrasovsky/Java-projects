@@ -3,10 +3,10 @@ package com.foxminded.calculator.model;
 import java.util.List;
 
 public class Result {
-	private int dividend;
-	private int divisor;
-	private int quotient;
-	private int remainder;
+	private final int dividend;
+	private final int divisor;
+	private final int quotient;
+	private final int remainder;
 	
 	private List<Step> steps;
 	

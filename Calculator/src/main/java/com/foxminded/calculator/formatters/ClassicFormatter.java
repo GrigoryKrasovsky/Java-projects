@@ -1,6 +1,6 @@
 package com.foxminded.calculator.formatters;
 
-import com.foxminded.calculator.Calculator;
+import com.foxminded.calculator.model.MathUtils;
 import com.foxminded.calculator.model.Result;
 import com.foxminded.calculator.model.Step;
 
@@ -13,21 +13,21 @@ public class ClassicFormatter implements Formatter {
 		if (result.getDividend()<0) {
 			indentIfNegative = " ";
 		}
-		int lastDigitIndex= Calculator.findLength(result.getSteps().get(0).getIntermediate());
+		int lastDigitIndex= MathUtils.findLength(result.getSteps().get(0).getIntermediate());
 		
 		output.append("_"+result.getDividend()+"|"+result.getDivisor()+"\n");
 		output.append(" "+ result.getSteps().get(0).getIntermediate());
-		for(int i=0;i<Calculator.findLength(result.getDividend())-Calculator.findLength(result.getSteps().get(0).getIntermediate());i++) {
+		for(int i=0;i<MathUtils.findLength(result.getDividend())-MathUtils.findLength(result.getSteps().get(0).getIntermediate());i++) {
 			output.append(" ");
 		}
 		output.append("|");
-		for(int i=0;i<=Calculator.findLength(result.getQuotient());i++) {
+		for(int i=0;i<=MathUtils.findLength(result.getQuotient());i++) {
 			output.append("-");
 		}
 		output.append("\n ");
 		output.append(indentIfNegative);
-		for(int i=0;i<=Calculator.findLength(result.getDividend());i++) {
-			if (i<=Calculator.findLength(result.getSteps().get(0).getIntermediate())) {
+		for(int i=0;i<=MathUtils.findLength(result.getDividend());i++) {
+			if (i<=MathUtils.findLength(result.getSteps().get(0).getIntermediate())) {
 				output.append("-");
 				
 			}else {
@@ -41,20 +41,20 @@ public class ClassicFormatter implements Formatter {
 				continue;
 			}
 			for(int index=0;index<lastDigitIndex+i;index++) {
-				if(index<lastDigitIndex+i-Calculator.findLength(step.getLocalDividend())) {
+				if(index<lastDigitIndex+i-MathUtils.findLength(step.getLocalDividend())) {
 					output.append(" ");
 				}
 			}
 			output.append("_"+ step.getLocalDividend()+"\n");
 			for(int index=0;index<lastDigitIndex+i;index++) {
-				if(index<lastDigitIndex+i-Calculator.findLength(step.getIntermediate())) {
+				if(index<lastDigitIndex+i-MathUtils.findLength(step.getIntermediate())) {
 					output.append(" ");
 				}
 			}
 			output.append(" "+ step.getIntermediate()+"\n"+" ");
 			output.append(indentIfNegative);
 			for(int index=0;index<lastDigitIndex+i+1;index++) {
-				if(index<lastDigitIndex+i-Calculator.findLength(step.getIntermediate())) {
+				if(index<lastDigitIndex+i-MathUtils.findLength(step.getIntermediate())) {
 					output.append(" ");
 				}else {
 					output.append("-");
@@ -62,8 +62,8 @@ public class ClassicFormatter implements Formatter {
 			}
 			output.append("\n");
 		}
-		// �������
-		for (int i=0;i<Calculator.findLength(result.getDividend())-Calculator.findLength(result.getRemainder())+1;i++) {
+		
+		for (int i=0;i<MathUtils.findLength(result.getDividend())-MathUtils.findLength(result.getRemainder())+1;i++) {
 			
 			output.append(" ");
 		}

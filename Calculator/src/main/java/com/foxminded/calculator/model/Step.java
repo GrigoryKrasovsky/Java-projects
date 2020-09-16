@@ -1,8 +1,8 @@
 package com.foxminded.calculator.model;
 
 public class Step {
-	private int localDividend;
-	private int intermediate;
+	private final int localDividend;
+	private final int intermediate;
 
 	public Step(int localDividend, int intermediate) {
 		this.localDividend = localDividend;

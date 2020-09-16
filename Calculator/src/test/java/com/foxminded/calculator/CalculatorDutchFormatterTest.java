@@ -21,7 +21,7 @@ class CalculatorDutchFormatterTest {
 				"      -75\n" + 
 				"      --\n" + 
 				"       0";
-		assertEquals(expected, format.format(Calculator.process(-225,-15)));
+		assertEquals(expected, format.format(calculator.process(-225,-15)));
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfDivisorNegative(){
@@ -33,7 +33,7 @@ class CalculatorDutchFormatterTest {
 				"      75\n" + 
 				"      --\n" + 
 				"       0";
-		assertEquals(expected, format.format(Calculator.process(225,-15)));
+		assertEquals(expected, format.format(calculator.process(225,-15)));
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfAllPositive(){
@@ -45,7 +45,7 @@ class CalculatorDutchFormatterTest {
 				"     75\n" + 
 				"     --\n" + 
 				"      0";
-		assertEquals(expected, format.format(Calculator.process(225, 15)));
+		assertEquals(expected, format.format(calculator.process(225, 15)));
 	}
 	@Test
 	void shouldVerifyDutchFormatterIfDividendNegative(){
@@ -57,6 +57,6 @@ class CalculatorDutchFormatterTest {
 				"     -75\n" + 
 				"     --\n" + 
 				"      0";
-		assertEquals(expected, format.format(Calculator.process(-225, 15)));
+		assertEquals(expected, format.format(calculator.process(-225, 15)));
 	}
 }

@@ -7,8 +7,8 @@ import com.foxminded.calculator.model.Result;
 
 public class CalculatorApp {
 	public static void main(String[] args) {
-		
-		Result result = Calculator.process(-225, 15);
+		Calculator calculator = new Calculator();
+		Result result = calculator.process(-2225, 15);
 		Formatter format = FormatterFactory.get("Classic");
 		System.out.println(format.format(result));
 	}
