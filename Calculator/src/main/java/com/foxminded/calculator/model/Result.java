@@ -33,6 +33,7 @@ public class Result {
 	public List<Step> getSteps(){
 		return steps;
 	}
+	
 	public String getAllValues() {
 		StringBuilder allValues = new StringBuilder();
 		allValues.append(dividend+" ");
