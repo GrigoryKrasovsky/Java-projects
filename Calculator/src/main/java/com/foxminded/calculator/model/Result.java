@@ -1,7 +1,6 @@
 package com.foxminded.calculator.model;
 
 import java.util.List;
-import com.foxminded.calculator.model.Step;
 
 public class Result {
 	private final int dividend;
