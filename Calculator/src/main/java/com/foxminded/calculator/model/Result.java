@@ -1,6 +1,7 @@
 package com.foxminded.calculator.model;
 
 import java.util.List;
+import com.foxminded.calculator.model.Step;
 
 public class Result {
 	private final int dividend;
@@ -33,7 +34,6 @@ public class Result {
 	public List<Step> getSteps(){
 		return steps;
 	}
-	
 	public String getAllValues() {
 		StringBuilder allValues = new StringBuilder();
 		allValues.append(dividend+" ");
