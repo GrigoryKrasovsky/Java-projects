@@ -6,6 +6,7 @@
 	<modules>
 		<module>Anagram</module>
 		<module>Calculator</module>
+		<module>Char-counter</module>
 	</modules>
 	<packaging>pom</packaging>
 	<properties>
