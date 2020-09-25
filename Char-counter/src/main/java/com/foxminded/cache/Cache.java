@@ -1,4 +1,4 @@
-package com.foxminded.cash;
+package com.foxminded.cache;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +12,10 @@ public class Cache {
 	
 	public Map<Character, Integer> getText(String text) {
 		return cache.get(text);
+	}
+	
+	public boolean contains(String text) {
+		return cache.containsKey(text);
 	}
 	
 }
