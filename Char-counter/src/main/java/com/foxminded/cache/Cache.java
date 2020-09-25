@@ -11,6 +11,7 @@ public class Cache {
 	}
 	
 	public Map<Character, Integer> getText(String text) {
+		
 		return cache.get(text);
 	}
 	

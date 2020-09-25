@@ -1,4 +1,4 @@
-package com.foxminded.CharCounter;
+package com.foxminded.charcounter;
 
 import java.util.HashMap;
 import java.util.Map;

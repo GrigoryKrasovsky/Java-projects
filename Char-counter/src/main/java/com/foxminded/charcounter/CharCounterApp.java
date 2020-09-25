@@ -1,21 +1,23 @@
-package com.foxminded.CharCounter;
+package com.foxminded.charcounter;
 
 import java.util.Map;
 import java.util.Scanner;
 
 import com.foxminded.cache.Cache;
-import com.foxminded.cache.CounterDecorator;
 
 public class CharCounterApp {
 	public static void main(String[] args) {
-		
-	String text = "hello";
+	Scanner scanner = new Scanner(System.in);
+	int i=0;
 	CharCounter basic = new BasicCharCounter();
-	//System.out.println(basic.count(text));
 	Cache cache = new Cache();
 	CounterDecorator decorator = new CounterDecorator(cache, basic);
-	Map<Character, Integer> result = decorator.count(text);
-		System.out.println(result.toString());
-		//System.out.println(cache.contains(text));
+	while (i<10) {
+			i++;
+			String text =scanner.nextLine();
+			Map<Character, Integer> result = decorator.count(text);
+			System.out.println(result.toString());
+		}
+	scanner.close();
 	}
 }
