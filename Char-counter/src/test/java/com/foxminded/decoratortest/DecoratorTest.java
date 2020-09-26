@@ -1,0 +1,35 @@
+package com.foxminded.decoratortest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.foxminded.cache.Cache;
+import com.foxminded.charcounter.CharCounter;
+import com.foxminded.charcounter.CounterDecorator;
+
+@ExtendWith(MockitoExtension.class)
+public class DecoratorTest {
+	Cache mcache;
+	CharCounter mcharcounter;
+
+	@InjectMocks
+	CounterDecorator decorator = new CounterDecorator(mcache, mcharcounter);
+	
+	@Test
+	public void testDecorator1() {
+		Map<Character, Integer> testmap = new HashMap<>();
+		testmap.put('e', 1);
+		testmap.put('h', 1);
+		testmap.put('y', 1);
+		when(decorator.count("hey")).thenReturn(testmap);
+		assertEquals(decorator.count("hey"),testmap);
+	}
+}
