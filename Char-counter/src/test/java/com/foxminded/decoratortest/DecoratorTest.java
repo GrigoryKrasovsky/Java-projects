@@ -46,4 +46,15 @@ class DecoratorTest {
 		assertEquals(decorator.count("hello"),testmap);
 
 	}
+	@Test
+	void testWhenCacheIsNotEmpty() {
+		Map<Character, Integer> helloEntry = new HashMap<>();
+		helloEntry.put('e', 1);
+		helloEntry.put('h', 1);
+		helloEntry.put('l', 2);
+		helloEntry.put('0', 1);
+		mcache.putText("hello", helloEntry);
+		when(decorator.count("hello")).thenReturn(helloEntry);
+		
+	}
 }
