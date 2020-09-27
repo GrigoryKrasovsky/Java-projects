@@ -29,14 +29,17 @@ class DecoratorTest {
 	
 
 	@Test
-	void testWhenCacheIsEmpty() {
-		Map<Character, Integer> testMap = Collections.emptyMap();
-		mcache.putText("some string",testMap);
-		verify(mcache, atLeastOnce()).putText("some string", testMap);
-	}
-	@Test
 	void testWhenCacheIsNotEmpty() {
 		Map<Character, Integer> testMap = Collections.emptyMap();
-		verify(mcache, never()).putText("some string", testMap);
+		when(mcache.contains("some text")).thenReturn(true);
+		decorator.count("some text");
+		verify(mcache, never()).putText("some text", testMap);
+	}
+	@Test
+	void testWhenCacheIsEmpty() {
+		Map<Character, Integer> testMap = Collections.emptyMap();
+		when(mcache.contains("some text")).thenReturn(false);
+		decorator.count("some text");
+		verify(mcache, atLeastOnce()).putText("some text", testMap);
 	}
 }
