@@ -16,7 +16,7 @@ public class CounterDecorator implements CharCounter{
 	@Override
 	public Map<Character, Integer> count(String text) {
 		if(!cache.contains(text)) {
-			System.out.println("New entry in cache");
+			
 			cache.putText(text, counter.count(text));
 		}
 		return cache.getText(text);

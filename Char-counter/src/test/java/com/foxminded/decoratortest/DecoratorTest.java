@@ -2,6 +2,7 @@ package com.foxminded.decoratortest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,37 +25,18 @@ class DecoratorTest {
 	CharCounter mcharcounter;
 
 	@InjectMocks
-	CounterDecorator decorator = new CounterDecorator(mcache, mcharcounter);
+	CounterDecorator decorator;
 	
-	@Test
-	void testDecorator1() {
-		Map<Character, Integer> testmap = new HashMap<>();
-		testmap.put('e', 1);
-		testmap.put('h', 1);
-		testmap.put('y', 1);
-		when(decorator.count("hey")).thenReturn(testmap);
-		assertEquals(decorator.count("hey"),testmap);
-	}
-	@Test
-	void testDecorator2() {
-		Map<Character, Integer> testmap = new HashMap<>();
-		testmap.put('e', 1);
-		testmap.put('h', 1);
-		testmap.put('l', 2);
-		testmap.put('0', 1);
-		when(decorator.count("hello")).thenReturn(testmap);
-		assertEquals(decorator.count("hello"),testmap);
 
+	@Test
+	void testWhenCacheIsEmpty() {
+		Map<Character, Integer> testMap = Collections.emptyMap();
+		mcache.putText("some string",testMap);
+		verify(mcache, atLeastOnce()).putText("some string", testMap);
 	}
 	@Test
 	void testWhenCacheIsNotEmpty() {
-		Map<Character, Integer> helloEntry = new HashMap<>();
-		helloEntry.put('e', 1);
-		helloEntry.put('h', 1);
-		helloEntry.put('l', 2);
-		helloEntry.put('0', 1);
-		mcache.putText("hello", helloEntry);
-		when(decorator.count("hello")).thenReturn(helloEntry);
-		
+		Map<Character, Integer> testMap = Collections.emptyMap();
+		verify(mcache, never()).putText("some string", testMap);
 	}
 }
