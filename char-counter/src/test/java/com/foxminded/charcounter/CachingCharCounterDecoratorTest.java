@@ -15,34 +15,34 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class CachingCharCounterDecoratorTest {
-	public static final String TEST = "test";
-	public static final Map<Character, Integer> testMap = Map.of('s', 1, 't', 2, 'e', 1);
+    public static final String TEST = "test";
+    public static final Map<Character, Integer> testMap = Map.of('s', 1, 't', 2, 'e', 1);
 
-	@Mock
-	CharMapCache cache;
+    @Mock
+    CharMapCache cache;
 
-	@Mock
-	CharCounter counter;
+    @Mock
+    CharCounter counter;
 
-	@InjectMocks
-	CachingCharCounterDecorator decorator;
+    @InjectMocks
+    CachingCharCounterDecorator decorator;
 
-	@Test
-	void shouldGetValueFromCache() {
-		when(cache.contains("test")).thenReturn(true);
-		when(cache.get(TEST)).thenReturn(new HashMap<>(testMap));
-		assertEquals(testMap, decorator.count(TEST));
-		verify(counter, never()).count(anyString());
-	}
+    @Test
+    void shouldGetValueFromCache() {
+        when(cache.contains("test")).thenReturn(true);
+        when(cache.get(TEST)).thenReturn(new HashMap<>(testMap));
+        assertEquals(testMap, decorator.count(TEST));
+        verify(counter, never()).count(anyString());
+    }
 
-	@Test
-	void shouldGetValueFromCounter() {
-		when(cache.contains(anyString())).thenReturn(false, true);
-		HashMap<Character, Integer> cached = new HashMap<>(testMap);
-		when(cache.get(TEST)).thenReturn(cached);
-		when(counter.count(TEST)).thenReturn(cached);
-		assertEquals(testMap, decorator.count(TEST));
-		verify(counter, times(1)).count(TEST);
-		verify(cache, times(1)).put(TEST, testMap);
-	}
+    @Test
+    void shouldGetValueFromCounter() {
+        when(cache.contains(anyString())).thenReturn(false, true);
+        HashMap<Character, Integer> cached = new HashMap<>(testMap);
+        when(cache.get(TEST)).thenReturn(cached);
+        when(counter.count(TEST)).thenReturn(cached);
+        assertEquals(testMap, decorator.count(TEST));
+        verify(counter, times(1)).count(TEST);
+        verify(cache, times(1)).put(TEST, testMap);
+    }
 }

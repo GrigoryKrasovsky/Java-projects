@@ -1,6 +1,6 @@
 package com.foxminded.cache;
 
-public interface Cache<T,K> {
+public interface Cache<T, K> {
     void put(K key, T value);
 
     T get(K key);
