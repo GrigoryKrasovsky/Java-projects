@@ -10,9 +10,10 @@ import com.foxminded.charcounter.BasicCharCounter;
 
 public class BasicCounterTest {
 	BasicCharCounter basicCounter = new BasicCharCounter();
-	Map <Character, Integer> testMap = Map.of('s',1, 't', 2, 'e', 1);
+	
 	@Test
 	void verifyBasicCounterReturnsProperResult() {
+		Map <Character, Integer> testMap = Map.of('s',1, 't', 2, 'e', 1);
 		assertEquals(testMap,basicCounter.count("test"));
 	}
 }
