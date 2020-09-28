@@ -18,7 +18,7 @@ public class DutchFormatter implements Formatter {
 			indentIfDivisorNegative = " ";
 		}
 		int startingPoint = findLength(result.getSteps().get(0).getLocalDividend())+findLength(result.getDivisor())+3;
-		output.append(result.getDivisor()+"/_"+result.getDividend()+ "\\" +result.getQuotient()+"\n");
+		output.append(result.getDivisor()).append("/_").append(result.getDividend()).append("\\").append(result.getQuotient()).append("\n");
 		output.append(indentIfDivisorNegative);
 		
 		for (int i = 0; i<result.getSteps().size();i++) {
@@ -26,7 +26,6 @@ public class DutchFormatter implements Formatter {
 				continue;
 			}
 			if(i == 0) {
-				
 				for (int index=0;index<startingPoint;index++) {
 					if(index>=startingPoint-findLength(result.getSteps().get(i).getIntermediate())-1+i) {
 						break;
@@ -34,7 +33,7 @@ public class DutchFormatter implements Formatter {
 					output.append(" "); 
 				}
 				
-				output.append(" "+result.getSteps().get(i).getIntermediate()+"\n");
+				output.append(" ").append(result.getSteps().get(i).getIntermediate()).append("\n");
 				output.append(indentIfDividendNegative);
 				output.append(indentIfDivisorNegative);
 
@@ -45,7 +44,6 @@ public class DutchFormatter implements Formatter {
 						output.append("-"); 
 					}
 				}
-				output.append("\n");
 			}else {
 				for (int index=0;index<startingPoint+i;index++) {
 					if(index>=startingPoint-findLength(result.getSteps().get(i).getIntermediate())-1+i) {
@@ -54,7 +52,7 @@ public class DutchFormatter implements Formatter {
 					output.append(" "); 
 				}
 				output.append(indentIfDivisorNegative);
-				output.append("_"+result.getSteps().get(i).getLocalDividend()+"\n");
+				output.append("_").append(result.getSteps().get(i).getLocalDividend()).append("\n");
 				for (int index=0;index<startingPoint+i;index++) {
 					if(index>=startingPoint-findLength(result.getSteps().get(i).getIntermediate())-1+i) {
 						break;
@@ -62,7 +60,7 @@ public class DutchFormatter implements Formatter {
 					output.append(" "); 
 				}
 				output.append(indentIfDivisorNegative);
-				output.append(" "+result.getSteps().get(i).getIntermediate()+"\n");
+				output.append(" ").append(result.getSteps().get(i).getIntermediate()).append("\n");
 				output.append(indentIfDivisorNegative);
 
 				for (int index=0;index<=startingPoint+i;index++) {
@@ -72,8 +70,8 @@ public class DutchFormatter implements Formatter {
 						output.append("-"); 
 					}
 				}
-				output.append("\n");
 			}
+			output.append("\n");
 		}
 		for(int i=0;i<findLength(result.getDividend())+findLength(result.getDivisor())+3-findLength(result.getRemainder());i++) {
 			output.append(" ");

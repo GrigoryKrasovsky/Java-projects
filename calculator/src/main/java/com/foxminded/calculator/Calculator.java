@@ -12,10 +12,10 @@ public class Calculator {
 			throw new IllegalArgumentException("Divisor cannot be zero");
 		}
 		if(Math.abs(dividend) < Math.abs(divisor)) {
-			Step stepp = new Step(0,0);
-			List<Step>stepss = new ArrayList<>();
-			stepss.add(stepp);
-			return new Result(dividend,divisor,dividend/divisor,dividend%divisor,stepss);
+			Step step = new Step(0,0);
+			List<Step>steps = new ArrayList<>();
+			steps.add(step);
+			return new Result(dividend,divisor,dividend/divisor,dividend%divisor,steps);
 		}
 		int checkIfDivisorNegative =1;
 		int checkIfDividendNegative =1;

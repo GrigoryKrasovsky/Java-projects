@@ -1,7 +1,5 @@
 package com.foxminded.cache;
 
-import java.util.Map;
-
 public interface Cache<T,K> {
     void put(K key, T value);
 

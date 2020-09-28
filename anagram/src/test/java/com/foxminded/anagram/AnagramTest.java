@@ -26,8 +26,6 @@ class AnagramTest {
 	@Test
 	void testExpectedException() {
 	 
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-	    anagram.process(null);
-	  });
+		Assertions.assertThrows(IllegalArgumentException.class, () -> anagram.process(null));
 	}
 }

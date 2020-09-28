@@ -8,15 +8,15 @@ public class ClassicFormatter implements Formatter {
 
 	@Override
 	public String format(Result result) {
-		StringBuilder output = new StringBuilder("");
+		StringBuilder output = new StringBuilder();
 		String indentIfNegative = "";
 		if (result.getDividend()<0) {
 			indentIfNegative = " ";
 		}
 		int lastDigitIndex= findLength(result.getSteps().get(0).getIntermediate());
 		
-		output.append("_"+result.getDividend()+"|"+result.getDivisor()+"\n");
-		output.append(" "+ result.getSteps().get(0).getIntermediate());
+		output.append("_").append(result.getDividend()).append("|").append(result.getDivisor()).append("\n");
+		output.append(" ").append(result.getSteps().get(0).getIntermediate());
 		for(int i=0;i<findLength(result.getDividend())-findLength(result.getSteps().get(0).getIntermediate());i++) {
 			output.append(" ");
 		}
@@ -34,7 +34,7 @@ public class ClassicFormatter implements Formatter {
 				output.append(" ");
 			}
 		}
-		output.append("|"+result.getQuotient()+"\n");
+		output.append("|").append(result.getQuotient()).append("\n");
 		for (int i = 1; i<result.getSteps().size();i++) {
 			Step step=result.getSteps().get(i);
 			if(result.getSteps().get(i).getIntermediate()==0) {
@@ -45,13 +45,13 @@ public class ClassicFormatter implements Formatter {
 					output.append(" ");
 				}
 			}
-			output.append("_"+ step.getLocalDividend()+"\n");
+			output.append("_").append(step.getLocalDividend()).append("\n");
 			for(int index=0;index<lastDigitIndex+i;index++) {
 				if(index<lastDigitIndex+i-findLength(step.getIntermediate())) {
 					output.append(" ");
 				}
 			}
-			output.append(" "+ step.getIntermediate()+"\n"+" ");
+			output.append(" ").append(step.getIntermediate()).append("\n").append(" ");
 			output.append(indentIfNegative);
 			for(int index=0;index<lastDigitIndex+i+1;index++) {
 				if(index<lastDigitIndex+i-findLength(step.getIntermediate())) {

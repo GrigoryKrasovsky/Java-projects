@@ -2,7 +2,6 @@ package com.foxminded.calculator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.foxminded.calculator.formatters.Formatter;
