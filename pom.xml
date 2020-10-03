@@ -7,6 +7,7 @@
 		<module>Anagram</module>
 		<module>Calculator</module>
 		<module>Char-counter</module>
+		<module>Java-8-API</module>
 	</modules>
 	<packaging>pom</packaging>
 	<properties>
