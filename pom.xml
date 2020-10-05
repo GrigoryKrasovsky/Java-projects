@@ -10,6 +10,7 @@
         <module>anagram</module>
         <module>calculator</module>
         <module>char-counter</module>
+        <module>java-8-api</module>
     </modules>
 
     <properties>
