@@ -11,7 +11,7 @@ class FileReaderTest {
 	
 	FileReader fr = new FileReader();
 	@Test
-	void ByteArrayInputStreamTest() throws IOException {
+	void shouldVerifyCorrectedReturnedBufferedString() throws IOException {
 		String excpected = "test\n";
 		ByteArrayInputStream testByteArrayInputStream = new ByteArrayInputStream("test".getBytes());
 		assertEquals (excpected, fr.getBufferedString(testByteArrayInputStream));
