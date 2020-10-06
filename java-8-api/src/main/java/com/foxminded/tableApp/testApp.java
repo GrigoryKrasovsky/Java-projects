@@ -1,8 +1,6 @@
 package com.foxminded.tableApp;
 
 import java.io.IOException;
-import java.io.InputStream;
-
 import com.foxminded.reader.FileReader;
 
 public class testApp {
