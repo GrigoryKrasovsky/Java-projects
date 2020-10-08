@@ -2,7 +2,9 @@ package com.foxminded.parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.foxminded.reader.FileReader;
 
@@ -13,22 +15,26 @@ public class FileParser {
 		this.outputString = fr.getBufferedString(fr.getInputStream(fileName));
 		
 	}
-	public List<StringBuilder> getAbbreviations () {
+	public Map<String, String> getMapOfAbbreviationsAndData () {
 		String[] lines = outputString.split("\n");
-		List <StringBuilder>listOfAbbreviations = new ArrayList<>();
-		StringBuilder abbreviationListAsString = new StringBuilder(" ");
+		Map<String, String>mapOfAbbreviations = new HashMap<>();
 		for (String line:lines) {
 			StringBuilder abbreviation = new StringBuilder();
-				for (int i=0; i<3;i++) {
-					abbreviation.append(line.charAt(i));
+			StringBuilder otherData = new StringBuilder();
+				for (int i=0; i<line.length();i++) {
+					if (i<3) {
+						abbreviation.append(line.charAt(i));
+					}else {
+						otherData.append(line.charAt(i));
+					}
+					
 			}
-				listOfAbbreviations.add(abbreviation);
-				abbreviationListAsString.append(abbreviation).append(",");
+				mapOfAbbreviations.put(abbreviation.toString(), otherData.toString());
 		}
-		return listOfAbbreviations;
+		return mapOfAbbreviations;
 	}
 	
-	public String getCertainAbbreviation(int number) {
-		return getAbbreviations().get(number).toString();
+	public String getCertainPair(String key) {
+		return getMapOfAbbreviationsAndData().get(key);
 	}
 }

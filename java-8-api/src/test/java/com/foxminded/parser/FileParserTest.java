@@ -11,8 +11,8 @@ class FileParserTest {
 	@Test
 	void shouldVerifyCorrectAbbreviationReturned() throws IOException {
 		FileParser fp = new FileParser("start.log");
-		String expected = "SVF";
-		assertEquals(expected, fp.getCertainAbbreviation(0));
+		String expected = "2018-05-24_12:02:58.917";
+		assertEquals(expected, fp.getCertainPair("SVF"));
 	}
 
 }
