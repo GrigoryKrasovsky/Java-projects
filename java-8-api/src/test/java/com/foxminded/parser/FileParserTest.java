@@ -22,22 +22,22 @@ class FileParserTest {
 		assertEquals(expected, fp.getCertainPair("SVF"));
 	}
 	@Test
-	void shouldVerifyCorrectNameInFinalMapOfMaps() throws IOException {
+	void shouldVerifyCorrectNameInMapOfMaps() throws IOException {
 		FileParser fp = new FileParser("abbreviations.txt");
 		String expected = "Sebastian Vettel";
-		assertEquals(expected, fp.getFinalMapWithMaps().get("SVF").get("key0"));
+		assertEquals(expected, fp.getMapWithMaps().get("SVF").get("key0"));
 	}
 	@Test
-	void shouldVerifyCorrectTeamInFinalMapOfMaps() throws IOException {
+	void shouldVerifyCorrectTeamInMapOfMaps() throws IOException {
 		FileParser fp = new FileParser("abbreviations.txt");
 		String expected = "RED BULL RACING TAG HEUER";
-		assertEquals(expected, fp.getFinalMapWithMaps().get("DRR").get("key1"));
+		assertEquals(expected, fp.getMapWithMaps().get("DRR").get("key1"));
 	}
 	@Test
-	void shouldVerifyCorrectTimeInFinalMapOfMaps() throws IOException {
+	void shouldVerifyCorrectTimeInMapOfMaps() throws IOException {
 		FileParser fp = new FileParser("start.log");
 		String expected = "12:14:12.054";
-		assertEquals(expected, fp.getFinalMapWithMaps().get("DRR").get("key1"));
+		assertEquals(expected, fp.getMapWithMaps().get("DRR").get("key1"));
 	}
 
 }

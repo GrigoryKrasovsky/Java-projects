@@ -37,7 +37,7 @@ public class FileParser {
 		return mapOfAbbreviations;
 	}
 	
-	public Map<String, Map<String, String>> getFinalMapWithMaps(){
+	public Map<String, Map<String, String>> getMapWithMaps(){
 		Map<String, Map<String, String>> mapOfMaps = new HashMap<>();
 		Map <String, String> abbreviationsAndDataMap = getMapOfAbbreviationsAndData();
 		for(String element:abbreviationsAndDataMap.keySet()) {
@@ -49,7 +49,7 @@ public class FileParser {
 		}
 		return mapOfMaps;
 	}
-	
+
 	public String getCertainPair(String key) {
 		return getMapOfAbbreviationsAndData().get(key);
 	}
