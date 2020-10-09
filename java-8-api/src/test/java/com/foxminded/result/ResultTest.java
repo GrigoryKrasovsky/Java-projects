@@ -3,6 +3,7 @@ package com.foxminded.result;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ class ResultTest {
 	
 		
 	@Test
-	void shouldVerifyCorrectNameFromResult() throws IOException {
+	void shouldVerifyCorrectNameFromResult() throws IOException, URISyntaxException {
 		FileParser abbreviationsFP = new FileParser("abbreviations.txt");
 		FileParser startFP = new FileParser("start.log");
 		FileParser endFP = new FileParser("end.log");
@@ -24,7 +25,7 @@ class ResultTest {
 	}
 	
 	@Test
-	void shouldVerifyCorrectStartTimeFromResult() throws IOException {
+	void shouldVerifyCorrectStartTimeFromResult() throws IOException, URISyntaxException {
 		FileParser abbreviationsFP = new FileParser("abbreviations.txt");
 		FileParser startFP = new FileParser("start.log");
 		FileParser endFP = new FileParser("end.log");
@@ -35,7 +36,7 @@ class ResultTest {
 	}
 	
 	@Test
-	void shouldVerifyCorrectEndTimeFromResult() throws IOException {
+	void shouldVerifyCorrectEndTimeFromResult() throws IOException, URISyntaxException {
 		FileParser abbreviationsFP = new FileParser("abbreviations.txt");
 		FileParser startFP = new FileParser("start.log");
 		FileParser endFP = new FileParser("end.log");
@@ -46,7 +47,7 @@ class ResultTest {
 	}
 	
 	@Test
-	void shouldVerifyCorrectDateFromResult() throws IOException {
+	void shouldVerifyCorrectDateFromResult() throws IOException, URISyntaxException {
 		FileParser abbreviationsFP = new FileParser("abbreviations.txt");
 		FileParser startFP = new FileParser("start.log");
 		FileParser endFP = new FileParser("end.log");

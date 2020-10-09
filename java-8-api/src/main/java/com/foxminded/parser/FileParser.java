@@ -1,17 +1,22 @@
 package com.foxminded.parser;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.foxminded.reader.FileReader;
 
 public class FileParser {
 	private final String outputString;
-	public FileParser(String fileName) throws IOException {
+	Stream<String> outputStream;
+	public FileParser(String fileName) throws IOException, URISyntaxException {
 		FileReader fr = new FileReader();
+		this.outputStream = fr.getStreamFromFile(fileName);
 		this.outputString = fr.getBufferedString(fr.getInputStream(fileName));
 		
 	}
@@ -53,4 +58,11 @@ public class FileParser {
 	public String getCertainPair(String key) {
 		return getMapOfAbbreviationsAndData().get(key);
 	}
+	
+	public Map<Object, Object> getMapFromStream(){
+		
+		return outputStream.
+				collect(Collectors.toMap(line->line, line1->line1));
+	}
+	
 }
