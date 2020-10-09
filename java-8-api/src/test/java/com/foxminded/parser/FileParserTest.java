@@ -45,7 +45,14 @@ class FileParserTest {
 	void shouldVerifyCorrectStreamOutput() throws IOException, URISyntaxException {
 		FileParser fp = new FileParser("start.log");
 		String expected = "12:14:12.054";
-		assertEquals(expected, fp.getMapWithMaps().get("DRR").get("key1"));
+		assertEquals(expected, fp.getRacersAbbreviations());
+	}
+	
+	@Test
+	void shouldVerifyCorrectgetRacersAbbreviations() throws IOException, URISyntaxException {
+		FileParser fp = new FileParser("abbreviations.txt");
+		String expected = "12:14:12.054";
+		assertEquals(expected, fp.getRacersAbbreviations());
 	}
 
 }

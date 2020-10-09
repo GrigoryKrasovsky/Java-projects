@@ -3,12 +3,15 @@ package com.foxminded.parser;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.foxminded.model.Racer;
+import com.foxminded.model.Racers;
 import com.foxminded.reader.FileReader;
 
 public class FileParser {
@@ -59,10 +62,12 @@ public class FileParser {
 		return getMapOfAbbreviationsAndData().get(key);
 	}
 	
-	public Map<Object, Object> getMapFromStream(){
-		
-		return outputStream.
-				collect(Collectors.toMap(line->line, line1->line1));
+	public List<String> getRacersAbbreviations(){
+		Racers racers = new Racers();
+		return outputStream.map(line -> Arrays.asList(line.split("_")))
+				.map(element -> element.get(0))
+				.map(string -> string.substring(0,3)).collect(Collectors.toList());
 	}
+	//return outputStream.map(racers.add(new Racer("","","","","","")));
 	
 }
