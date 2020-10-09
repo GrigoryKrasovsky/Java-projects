@@ -16,9 +16,9 @@ class FileParserTest {
 		
 		Path path = Paths.get(getClass().getClassLoader()
 			      .getResource("start.log").toURI());
-		FileParser fp = new FileParser(path);
+		Parser fp = new TimeParser(path);
 		String expected = "12:14:12.054";
-		assertEquals(expected, fp.parseRacersInfo());
+		assertEquals(expected, fp.parse());
 	}
 
 }

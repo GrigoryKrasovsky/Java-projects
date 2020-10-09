@@ -12,18 +12,19 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FileParser {
+public class TimeParser implements Parser {
 	
 	private static final DateTimeFormatter DATETIME_FORMAT = 
 			DateTimeFormatter.ofPattern("uuuu-MM-dd_HH:mm:ss.SSS", Locale.ENGLISH);
 	
 	private final Path path;
 	
-	public FileParser(Path path) {
+	public TimeParser(Path path) {
 		this.path = path;	
 	}
-	
-	public Map <Object, Object> parseRacersInfo() throws IOException {
+
+	@Override
+	public Map<Object, Object> parse() throws IOException {
 		try (Stream<String>lines = Files.lines(path)){
 			return lines.collect(Collectors.toMap(
 					string -> string.substring(0,3),
