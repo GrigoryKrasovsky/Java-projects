@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 
 class FileReaderTest {
@@ -26,10 +24,6 @@ class FileReaderTest {
 		assertEquals(expected, fr.getStreamFromFile("test.txt").findFirst());
 	}
 	
-	@Test
-	void shouldVerifyCorrectLineFromStreamReturned() throws IOException, URISyntaxException {
-		Optional <String> expected = Optional.of(new String("Hello world!"));
-		assertEquals(expected, fr.getStreamFromFile("abbreviations.txt").filter(l->l.startsWith("")).collect(Collectors.toList()));
-	}
+	
 
 }
