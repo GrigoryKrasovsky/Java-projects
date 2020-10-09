@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class FileReader {
 	public InputStream getInputStream(String pathToFile){
@@ -22,5 +26,9 @@ public class FileReader {
 			System.out.println("File is absent");
 		}
 		return sb.toString();
+	}
+	
+	public Stream<String> getStreamFromFile(String path) throws URISyntaxException, IOException{
+		return Files.lines(Paths.get(ClassLoader.getSystemResource(path).toURI()));
 	}
 }
