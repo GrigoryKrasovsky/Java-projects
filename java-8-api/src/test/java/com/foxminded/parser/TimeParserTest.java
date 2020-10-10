@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 class TimeParserTest {
 
 	@Test
-	void shouldVerifyCorrectgetRacersOutput() throws IOException, URISyntaxException {
+	void shouldVerifyCorrectTimeAndDateOutput() throws IOException, URISyntaxException {
 		
 		Path path = Paths.get(getClass().getClassLoader()
 			      .getResource("start.log").toURI());
