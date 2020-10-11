@@ -1,5 +1,10 @@
 package com.foxminded.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Racer {
 	private final String abbreviation;
 	private final String name;
@@ -47,7 +52,14 @@ public class Racer {
 	public String getDate() {
 		return date;
 	}
-	public String getAll() {
-		return abbreviation +" "+ name+" " + team+" " + startTime+" " + endTime+" " + date;
+	public Map<String, String> toMap() {
+		Map<String, String> result = new HashMap<>();
+		result.put("abbreviation", abbreviation);
+		result.put("name", name);
+		result.put("team", team);
+		result.put("startTime", startTime);
+		result.put("endTime", endTime);
+		result.put("date", date);
+		return result;
 	}
 }

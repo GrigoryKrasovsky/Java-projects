@@ -34,6 +34,5 @@ public class RacerBuilder {
 						endTimeMap.get(i).get(1),
 						endTimeMap.get(i).get(0)))
 				.collect(Collectors.toList());
-
 	}
 }

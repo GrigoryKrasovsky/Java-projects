@@ -15,4 +15,10 @@ class RacerBuilderTest {
 		String expected = "LSW";
 		assertEquals(expected, racerBuilder.buildRacers().get(10).getAbbreviation());
 	}
+	@Test
+	void shouldVerifyCorrectGeneralInfoReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "LSW";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).toMap());
+	}
 }
