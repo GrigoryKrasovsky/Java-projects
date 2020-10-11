@@ -47,4 +47,7 @@ public class Racer {
 	public String getDate() {
 		return date;
 	}
+	public String getAll() {
+		return abbreviation +" "+ name+" " + team+" " + startTime+" " + endTime+" " + date;
+	}
 }
