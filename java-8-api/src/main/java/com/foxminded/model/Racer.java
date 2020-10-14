@@ -1,6 +1,7 @@
 package com.foxminded.model;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
@@ -10,27 +11,26 @@ import java.util.Locale;
 import java.util.Map;
 
 public class Racer {
-	private static final DateTimeFormatter DATETIME_FORMAT =
-	        DateTimeFormatter.ofPattern("HH:mm:ss.SSS", Locale.ENGLISH);
+
 	private final String abbreviation;
 	private final String name;
 	private final String team;
-	private final LocalDateTime startTime;
-	private final String endTime;
-	private final String date;
+	private final LocalTime startTime;
+	private final LocalTime endTime;
+	private final LocalDate date;
 	private final Period lapTime;
 
 	
 	public Racer(String abbreviation,
 			String name,
 			String team,
-			String startTime,
-			String endTime,
-			String date) {
+			LocalTime startTime,
+			LocalTime endTime,
+			LocalDate date) {
 		this.abbreviation = abbreviation;
 		this.name = name;
 		this.team = team;
-		this.startTime = LocalDateTime.parse(startTime, DATETIME_FORMAT);
+		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
 		this.lapTime = null;
@@ -53,25 +53,15 @@ public class Racer {
 		return team;
 	}
 	
-	public LocalDateTime getStartTime() {
+	public LocalTime getStartTime() {
 		return this.startTime;
 	}
 	
-	public String getEndTime() {
+	public LocalTime getEndTime() {
 		return this.endTime;
 	}
 	
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
-	}
-	public Map<String, String> toMap() {
-		Map<String, String> result = new HashMap<>();
-		result.put("abbreviation", abbreviation);
-		result.put("name", name);
-		result.put("team", team);
-		result.put("startTime", startTime);
-		result.put("endTime", endTime);
-		result.put("date", date);
-		return result;
 	}
 }

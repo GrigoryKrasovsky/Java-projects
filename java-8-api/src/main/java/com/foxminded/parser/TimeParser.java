@@ -26,16 +26,15 @@ public class TimeParser implements Parser {
 
 	
 	@Override
-	public Map <String, DateAndTimeInfo> parse() throws IOException {
+	public Map <String, ?> parse() throws IOException {
 		
 		try (Stream<String>lines = Files.lines(path)){
 			
-			Map <Object, Object> map = lines.collect(Collectors.toMap(
-					string -> string.substring(0,3),
-					string -> new DateAndTimeInfo(LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse((string.substring(3).split("_")[1]))),
-							LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd")))));
-			Map<String, DateAndTimeInfo> result = new HashMap<>((Map) map);
-		return result;
+
+		return lines.collect(Collectors.toMap(
+				string -> string.substring(0,3),
+				string -> new DateAndTimeInfo(LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse((string.substring(3).split("_")[1]))),
+						LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd")))));
 		}
 	}
 }

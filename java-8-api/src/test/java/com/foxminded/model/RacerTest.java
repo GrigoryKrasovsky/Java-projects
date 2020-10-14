@@ -3,24 +3,20 @@ package com.foxminded.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Locale;
-
 import org.junit.jupiter.api.Test;
 
 class RacerTest {
 
 	@Test
-	void test() {
+	void shouldVerifyCorrectTimeReturned() {
 	
+		LocalTime localTime = LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse("12:30:13.057"));
+		LocalDate localDate = LocalDate.parse("2018-05-24", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		
-		
-		
-		Racer racer = new Racer("DRR", "Daniel Ricciardo", "RED BULL RACING TAG HEUER", "12:14", "12:15:24.067", "2018-05-24");
-		int expected = 1;
+		Racer racer = new Racer("DRR", "Daniel Ricciardo", "RED BULL RACING TAG HEUER", localTime, localTime, localDate);
+		LocalTime expected = localTime;
 		assertEquals(expected, racer.getEndTime());
 	}
 

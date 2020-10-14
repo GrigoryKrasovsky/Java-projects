@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.foxminded.model.DateAndTimeInfo;
+import com.foxminded.model.NameAndTeamInfo;
 import com.foxminded.model.Racer;
 import com.foxminded.parser.Parser;
 import com.foxminded.parser.RacerInfoParser;
@@ -22,17 +24,17 @@ public class RacerBuilder {
 		Parser endTimeParser = new TimeParser(Paths.get(getClass().getClassLoader()
 			      .getResource("end.log").toURI()));
 		
-		Map<String, List<String>> racerInfoMap = racerInfoParser.parse();
-		Map<String, List<String>> startTimeMap = startTimeParser.parse();
-		Map<String, List<String>> endTimeMap = endTimeParser.parse();
+		Map<String, ?> racerInfoMap = racerInfoParser.parse();
+		Map<String, ?> startTimeMap = startTimeParser.parse();
+		Map<String, ?> endTimeMap = endTimeParser.parse();
 
 		return racerInfoMap.keySet().stream()
 				.map(i -> new Racer (i,
-						racerInfoMap.get(i).get(0),
-						racerInfoMap.get(i).get(1),
-						startTimeMap.get(i).get(1),
-						endTimeMap.get(i).get(1),
-						endTimeMap.get(i).get(0)))
+						((NameAndTeamInfo) racerInfoMap.get(i)).getName(),
+						((NameAndTeamInfo) racerInfoMap.get(i)).getTeam(),
+						((DateAndTimeInfo)startTimeMap.get(i)).getLocalTime(),
+						((DateAndTimeInfo)endTimeMap.get(i)).getLocalTime(),
+						((DateAndTimeInfo)endTimeMap.get(i)).getLocalDate()))
 				.collect(Collectors.toList());
 	}
 }

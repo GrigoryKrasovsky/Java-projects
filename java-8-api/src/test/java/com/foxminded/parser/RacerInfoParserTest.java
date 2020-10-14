@@ -10,6 +10,8 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.model.NameAndTeamInfo;
+
 class RacerInfoParserTest {
 
 	@Test
@@ -19,7 +21,9 @@ class RacerInfoParserTest {
 			      .getResource("abbreviations.txt").toURI());
 		Parser fp = new RacerInfoParser(path);
 		assertTrue(fp.parse().containsKey("VBM"));
-		assertEquals(Arrays.asList("Valtteri Bottas", "MERCEDES"), fp.parse().get("VBM"));
+		NameAndTeamInfo nameAndTeamInfo = (NameAndTeamInfo)fp.parse().get("VBM");
+		
+		assertEquals(Arrays.asList("Valtteri Bottas", "MERCEDES"), Arrays.asList(nameAndTeamInfo.getName(),nameAndTeamInfo.getTeam()));
 	}
 }
 

@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface Parser {
-	public <T>Map<String, List<T>> parse() throws IOException;
+	public Map<String, ?> parse() throws IOException;
 }
