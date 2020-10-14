@@ -1,14 +1,8 @@
 package com.foxminded.model;
 
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.time.temporal.ChronoUnit;
 
 public class Racer {
 
@@ -18,7 +12,7 @@ public class Racer {
 	private final LocalTime startTime;
 	private final LocalTime endTime;
 	private final LocalDate date;
-	private final Period lapTime;
+	private final long lapTime;
 
 	
 	public Racer(String abbreviation,
@@ -33,7 +27,7 @@ public class Racer {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
-		this.lapTime = null;
+		this.lapTime = ChronoUnit.MILLIS.between(startTime,endTime);
 
 	}
 	
@@ -41,8 +35,8 @@ public class Racer {
 		return abbreviation;
 	}
 	
-	public Period getLap() {
-		return this.lapTime;
+	public LocalTime getLap() {
+		return Utilities.convertLongToTime(this.lapTime);
 	}
 	
 	public String getName() {

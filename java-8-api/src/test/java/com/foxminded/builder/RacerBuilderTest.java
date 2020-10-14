@@ -34,5 +34,6 @@ class RacerBuilderTest {
 		assertEquals("12:06:13.511", racerBuilder.buildRacers().get(10).getStartTime().toString());
 		assertEquals("12:07:26.834", racerBuilder.buildRacers().get(10).getEndTime().toString());
 		assertEquals("WILLIAMS MERCEDES", racerBuilder.buildRacers().get(10).getTeam().toString());
+		assertEquals("00:01:13.323",racerBuilder.buildRacers().get(10).getLap().toString());
 	}
 }
