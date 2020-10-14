@@ -39,6 +39,10 @@ public class Racer {
 		return Utilities.convertLongToTime(this.lapTime);
 	}
 	
+	public long getLapInLong() {
+		return lapTime;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -48,11 +52,11 @@ public class Racer {
 	}
 	
 	public LocalTime getStartTime() {
-		return this.startTime;
+		return startTime;
 	}
 	
 	public LocalTime getEndTime() {
-		return this.endTime;
+		return endTime;
 	}
 	
 	public LocalDate getDate() {

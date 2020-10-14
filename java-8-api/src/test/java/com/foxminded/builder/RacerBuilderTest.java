@@ -26,14 +26,39 @@ class RacerBuilderTest {
 		assertEquals(expected, racerBuilder.buildRacers().get(10).getAbbreviation());
 	}
 	@Test
-	void shouldVerifyCorrectInfoReturnedForRacerTen() throws URISyntaxException, IOException {
+	void shouldVerifyCorrectNameReturned() throws URISyntaxException, IOException {
 		RacerBuilder racerBuilder = new RacerBuilder();
-
-		assertEquals("LSW", racerBuilder.buildRacers().get(10).getAbbreviation());
-		assertEquals("2018-05-24", racerBuilder.buildRacers().get(10).getDate().toString());
-		assertEquals("12:06:13.511", racerBuilder.buildRacers().get(10).getStartTime().toString());
-		assertEquals("12:07:26.834", racerBuilder.buildRacers().get(10).getEndTime().toString());
-		assertEquals("WILLIAMS MERCEDES", racerBuilder.buildRacers().get(10).getTeam().toString());
-		assertEquals("00:01:13.323",racerBuilder.buildRacers().get(10).getLap().toString());
+		String expected = "Lance Stroll";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getName());
+	}
+	@Test
+	void shouldVerifyCorrectDateReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "2018-05-24";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getDate().toString());
+	}
+	@Test
+	void shouldVerifyCorrectStartTimeReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "12:06:13.511";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getStartTime().toString());
+	}
+	@Test
+	void shouldVerifyCorrectEndtimeReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "12:07:26.834";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getEndTime().toString());
+	}
+	@Test
+	void shouldVerifyCorrectLapReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "00:01:13.323";
+		assertEquals(expected,racerBuilder.buildRacers().get(10).getLap().toString());
+	}
+	@Test
+	void shouldVerifyCorrectTeamReturned() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "WILLIAMS MERCEDES";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getTeam().toString());
 	}
 }
