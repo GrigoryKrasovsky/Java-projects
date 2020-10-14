@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utilities {
-	
+	private Utilities() {
+		throw new IllegalStateException("Utility class");
+	}
 	private static List<Integer> convertLongToList(long input) {
 		
 		List<Integer> list = new ArrayList<>();

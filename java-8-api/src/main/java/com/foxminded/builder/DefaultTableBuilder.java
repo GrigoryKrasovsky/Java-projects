@@ -3,29 +3,23 @@ package com.foxminded.builder;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import com.foxminded.model.Racer;
 
 public class DefaultTableBuilder implements TableBuilder {
 
 	@Override
-	public Map<Integer, List<String>> buildRow(Integer integer, Racer racer) throws URISyntaxException, IOException {
+	public Map<?, List<Racer>> buildTable() throws URISyntaxException, IOException {
 		
-		List <String> list = new ArrayList<>();
-		list.add(racer.getAbbreviation());
-		list.add(racer.getName());
-		list.add(racer.getStartTime());
-		list.add(racer.getAbbreviation());
-		list.add(racer.getAbbreviation());
-		list.add(racer.getAbbreviation());
-		
-		Map<Integer, List<String>> map= new HashMap<>();
-		map.put(integer, list);
+		RacerBuilder racerBuilder = new RacerBuilder();
 
-		return map;
-		
+		return racerBuilder.buildRacers().stream()
+				.collect(Collectors.groupingBy(Racer::getName));		
 	}
-
 }
