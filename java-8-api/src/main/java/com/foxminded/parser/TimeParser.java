@@ -3,6 +3,9 @@ package com.foxminded.parser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import com.foxminded.model.DateAndTimeInfo;
 
 public class TimeParser implements Parser {
 	
@@ -21,13 +26,15 @@ public class TimeParser implements Parser {
 
 	
 	@Override
-	public Map <String, List<String>> parse() throws IOException {
+	public Map <String, DateAndTimeInfo> parse() throws IOException {
+		
 		try (Stream<String>lines = Files.lines(path)){
 			
 			Map <Object, Object> map = lines.collect(Collectors.toMap(
 					string -> string.substring(0,3),
-					string -> Arrays.asList(string.substring(3).split("_"))));
-			Map<String, List<String>> result = new HashMap<>((Map) map);
+					string -> new DateAndTimeInfo(LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse((string.substring(3).split("_")[1]))),
+							LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd")))));
+			Map<String, DateAndTimeInfo> result = new HashMap<>((Map) map);
 		return result;
 		}
 	}

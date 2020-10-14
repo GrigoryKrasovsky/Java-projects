@@ -1,17 +1,24 @@
 package com.foxminded.model;
 
-import java.util.ArrayList;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class Racer {
+	private static final DateTimeFormatter DATETIME_FORMAT =
+	        DateTimeFormatter.ofPattern("HH:mm:ss.SSS", Locale.ENGLISH);
 	private final String abbreviation;
 	private final String name;
 	private final String team;
-	private final String startTime;
+	private final LocalDateTime startTime;
 	private final String endTime;
 	private final String date;
+	private final Period lapTime;
 
 	
 	public Racer(String abbreviation,
@@ -23,14 +30,19 @@ public class Racer {
 		this.abbreviation = abbreviation;
 		this.name = name;
 		this.team = team;
-		this.startTime = startTime;
+		this.startTime = LocalDateTime.parse(startTime, DATETIME_FORMAT);
 		this.endTime = endTime;
 		this.date = date;
+		this.lapTime = null;
 
 	}
 	
 	public String getAbbreviation() {
 		return abbreviation;
+	}
+	
+	public Period getLap() {
+		return this.lapTime;
 	}
 	
 	public String getName() {
@@ -41,12 +53,12 @@ public class Racer {
 		return team;
 	}
 	
-	public String getStartTime() {
-		return startTime;
+	public LocalDateTime getStartTime() {
+		return this.startTime;
 	}
 	
 	public String getEndTime() {
-		return endTime;
+		return this.endTime;
 	}
 	
 	public String getDate() {
