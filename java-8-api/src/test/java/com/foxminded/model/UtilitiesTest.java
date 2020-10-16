@@ -9,7 +9,7 @@ class UtilitiesTest {
 	@Test
 	void shouldVerifyCorrectMathUtilsOutput() {
 		long input = 73323;
-		String expected = "00:01:13.323";
+		String expected = "01:13.323";
 		
 		assertEquals(expected, Utilities.convertLongToTime(input).toString());
 	}

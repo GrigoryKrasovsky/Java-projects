@@ -35,7 +35,7 @@ public class Racer {
 		return abbreviation;
 	}
 	
-	public LocalTime getLap() {
+	public String getLap() {
 		return Utilities.convertLongToTime(this.lapTime);
 	}
 	

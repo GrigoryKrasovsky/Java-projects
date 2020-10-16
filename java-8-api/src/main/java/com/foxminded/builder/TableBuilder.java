@@ -8,5 +8,5 @@ import java.util.Map;
 import com.foxminded.model.Racer;
 
 public interface TableBuilder {
-	public Map<?, List<Racer>> buildTable() throws URISyntaxException, IOException;
+	public Map<Long, List<Racer>> buildTable() throws URISyntaxException, IOException;
 }
