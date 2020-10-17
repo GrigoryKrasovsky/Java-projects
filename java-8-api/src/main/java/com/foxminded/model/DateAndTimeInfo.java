@@ -2,19 +2,28 @@ package com.foxminded.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DateAndTimeInfo {
-	private final LocalTime localTime;
-	private final LocalDate localDate;
+	private List<LocalTime> localTime = new ArrayList<>();
+    private List<LocalDate> localDate = new ArrayList<>();
 	
 	public DateAndTimeInfo(LocalTime localTime, LocalDate localDate) {
-		this.localTime = localTime;
-		this.localDate = localDate;
+		this.localTime.add(localTime);
+        this.localDate.add(localDate);
+
 	}
-	public LocalTime getLocalTime() {
+	public List<LocalTime> getLocalTime() {
 		return this.localTime;
 	}
-	public LocalDate getLocalDate() {
+	public List<LocalDate> getLocalDate() {
 		return this.localDate;
+	}
+	public DateAndTimeInfo addAnotherLapTime(DateAndTimeInfo dateAndTimeInfo) {
+		this.localTime.addAll(dateAndTimeInfo.getLocalTime());
+		this.localDate.addAll(dateAndTimeInfo.getLocalDate());
+		return this;
 	}
 }

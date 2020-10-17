@@ -3,24 +3,25 @@ package com.foxminded.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 public class Racer {
 
 	private final String abbreviation;
 	private final String name;
 	private final String team;
-	private final LocalTime startTime;
-	private final LocalTime endTime;
-	private final LocalDate date;
+	private final List<LocalTime> startTime;
+	private final List<LocalTime> endTime;
+	private final List<LocalDate> date;
 	private final long lapTime;
 
 	
 	public Racer(String abbreviation,
 			String name,
 			String team,
-			LocalTime startTime,
-			LocalTime endTime,
-			LocalDate date) {
+			List<LocalTime> startTime,
+			List<LocalTime> endTime,
+			List<LocalDate> date) {
 		this.abbreviation = abbreviation;
 		this.name = name;
 		this.team = team;

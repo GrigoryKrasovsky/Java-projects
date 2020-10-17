@@ -20,15 +20,15 @@ class TimeParserTest {
 	void shouldVerifyCorrectTimeAndDateOutput() throws IOException, URISyntaxException {
 		DateAndTimeInfo dateTimeInfo;
 		Path path = Paths.get(getClass().getClassLoader()
-			      .getResource("start.log").toURI());
+			      .getResource("start1.log").toURI());
 		Parser tp = new TimeParser(path);
 		
 		dateTimeInfo = (DateAndTimeInfo) tp.parse().get("VBM");
-		String dateExpected = "2018-05-24";
+		String dateExpected = "2019-07-12";
 		String timeExpected = "12:00";
 		
 		assertTrue(tp.parse().containsKey("VBM"));
-		assertEquals(dateExpected, dateTimeInfo.getLocalDate().toString());
-		assertEquals(timeExpected, dateTimeInfo.getLocalTime().toString());
+		assertEquals(dateExpected, dateTimeInfo.getLocalDate().get(0).toString());
+		assertEquals(timeExpected, dateTimeInfo.getLocalTime().get(1).toString());
 	}
 }

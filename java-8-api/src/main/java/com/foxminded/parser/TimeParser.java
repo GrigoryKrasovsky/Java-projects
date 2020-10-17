@@ -34,7 +34,8 @@ public class TimeParser implements Parser {
 		return lines.collect(Collectors.toMap(
 				string -> string.substring(0,3),
 				string -> new DateAndTimeInfo(LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse((string.substring(3).split("_")[1]))),
-						LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd")))));
+						LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd"))),
+				(string1, string2)->string1.addAnotherLapTime(string2)));
 		}
 	}
 }

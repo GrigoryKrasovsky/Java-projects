@@ -8,10 +8,9 @@ public class DefaultTableModel implements TableModel{
 
 	@Override
 	public List<Racer> createTableModel(List<Racer> racerList) {
-		List<Racer> sortedList = racerList.stream()
+		return racerList.stream()
 				.sorted(Comparator.comparingLong(Racer::getLapInLong))
 				.collect(Collectors.toList());
-		return sortedList;
 	}
 
 }
