@@ -31,8 +31,9 @@ class UtilitiesTest {
 		endTimeList.add(endTime);
 
 		
-		
-		assertEquals(1, Utilities.findLapTime(startTimeList, endTimeList));
+		List<Long>expected = new ArrayList<>();
+		expected.add(85750L);
+		assertEquals(expected, Utilities.findLapTime(startTimeList, endTimeList));
 	}
 
 }
