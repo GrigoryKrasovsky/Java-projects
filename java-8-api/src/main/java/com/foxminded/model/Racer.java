@@ -3,6 +3,7 @@ package com.foxminded.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 
 public class Racer {
@@ -13,7 +14,7 @@ public class Racer {
 	private final List<LocalTime> startTime;
 	private final List<LocalTime> endTime;
 	private final List<LocalDate> date;
-	private final long lapTime;
+	//private final List<Long> lapTime;
 
 	
 	public Racer(String abbreviation,
@@ -28,7 +29,7 @@ public class Racer {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
-		this.lapTime = ChronoUnit.MILLIS.between(startTime,endTime);
+		//this.lapTime = Utilities.findLapTime(startTime,endTime);
 
 	}
 	
@@ -36,12 +37,12 @@ public class Racer {
 		return abbreviation;
 	}
 	
-	public String getLap() {
-		return Utilities.convertLongToTime(this.lapTime);
+	public List<String> getLapList() {
+		return Utilities.convertLongToTime(Utilities.findLapTime(startTime,endTime));
 	}
 	
-	public long getLapInLong() {
-		return lapTime;
+	public List<Long> getLapInLong() {
+		return Utilities.findLapTime(startTime,endTime);
 	}
 	
 	public String getName() {
@@ -52,15 +53,30 @@ public class Racer {
 		return team;
 	}
 	
-	public LocalTime getStartTime() {
+	public List<LocalTime> getStartTime() {
 		return startTime;
 	}
 	
-	public LocalTime getEndTime() {
+	public List<LocalTime> getEndTime() {
 		return endTime;
 	}
 	
 	public LocalDate getDate() {
-		return date;
+		return date.get(0);
+	}
+	public Integer findNumberOfLaps() {
+		return endTime.size();
+	}
+	public <T> T getBestLap() {
+		if(endTime == null) {
+			return (T) String.format("%s has not completed any laps", this.getName());
+		}
+		return (T)Utilities.convertLongToTime(Arrays.asList(Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime))));
+	}
+	public <T> T getBestLapInLong() {
+		if(endTime == null) {
+			return (T) String.format("%s has not completed any laps", this.getName());
+		}
+		return (T)Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime));
 	}
 }

@@ -12,11 +12,28 @@ import org.junit.jupiter.api.Test;
 class UtilitiesTest {
 
 	@Test
-	void shouldVerifyCorrectMathUtilsOutput() {
-		long input = 73323;
+	void shouldVerifyCorrectLongToTimeOutput() {
+		long input1 = 73323;
+		long input2 = 63323;
+		List<Long>test = new ArrayList<>();
+		test.add(input1);
+		test.add(input2);
+		
 		String expected = "01:13.323";
 		
-		assertEquals(expected, Utilities.convertLongToTime(input).toString());
+		assertEquals(expected, Utilities.convertLongToTime(test).get(0).toString());
+	}
+	
+	@Test
+	void shouldVerifyCorrectFindMinOutput() {
+		long input1 = 73323;
+		long input2 = 63323;
+		List<Long>test = new ArrayList<>();
+		test.add(input1);
+		test.add(input2);
+		Long expected = 63323L;
+		
+		assertEquals(expected, Utilities.findMinNumber(test));
 	}
 	
 	@Test
