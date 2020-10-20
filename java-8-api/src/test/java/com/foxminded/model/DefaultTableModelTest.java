@@ -12,20 +12,20 @@ import org.junit.jupiter.api.Test;
 
 import com.foxminded.builder.RacerBuilder;
 
-class DefaultRowModelTest {
+class DefaultTableModelTest {
 
 	@Test
 	void shouldVerifyCorrectTimeAndDateOutput() throws IOException, URISyntaxException {
 		RacerBuilder racerBuilder = new RacerBuilder();
 		List<Racer> racerList = racerBuilder.buildRacers();
-		RowModel drm = new DefaultRowModel();
+		TableModel drm = new DefaultTableModel();
 		List<String>expected = Arrays.asList("01:25.093");
 
-		System.out.println(drm.createRowModel(racerList).stream()
+		System.out.println(drm.createTableModel(racerList).stream()
 				.map(racer -> racer.getBestLap())
 				.collect(Collectors.toList()));
 		
-		assertEquals(expected,drm.createRowModel(racerList).stream()
+		assertEquals(expected,drm.createTableModel(racerList).stream()
 				.map(racer -> racer.getBestLap())
 				.collect(Collectors.toList()).get(0));
 	}

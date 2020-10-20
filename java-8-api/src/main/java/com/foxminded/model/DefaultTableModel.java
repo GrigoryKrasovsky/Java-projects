@@ -4,10 +4,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DefaultRowModel implements RowModel{
+public class DefaultTableModel implements TableModel{
 
 	@Override
-	public List<Racer> createRowModel(List<Racer> racerList) {
+	public List<Racer> createTableModel(List<Racer> racerList) {
 		List<Racer> result = racerList.stream()
 				.filter(racer -> racer.getEndTime()!=null)
 				.sorted(Comparator.comparingLong(Racer::getBestLapInLong))
