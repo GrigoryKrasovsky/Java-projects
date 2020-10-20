@@ -1,10 +1,14 @@
 package com.foxminded.java8api;
 
-import java.util.Map;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+import com.foxminded.formatter.TableFormatter;
 
 public class Java8APIApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws URISyntaxException, IOException {
+		TableFormatter tf = new TableFormatter("Best Lap");
+		System.out.println(tf.formatTable());
 	}
-
 }
