@@ -1,17 +1,17 @@
 package com.foxminded.formatter;
 
 import java.util.StringJoiner;
-
 import com.foxminded.model.Racer;
 
 public class BestLapRowFormatter implements RowFormatter{
 
 	@Override
-	public String format(Racer racer) {
+	public String format(Integer i, Racer racer) {
 		
 		StringJoiner sj = new StringJoiner("|");
-		sj.add(String.format("%-20s", racer.getName()))
-		.add(String.format("%-25s",racer.getTeam()))
+		sj.add(String.format("%-3s", String.valueOf(i)))
+		.add(String.format("%-25s", racer.getName()))
+		.add(String.format("%-30s",racer.getTeam()))
 		.add(racer.getBestLap().toString());
 		return sj.toString();
 		

@@ -16,10 +16,8 @@ class BestLapTableModelTest {
 
 	@Test
 	void shouldVerifyCorrectTimeAndDateOutput() throws IOException, URISyntaxException {
-		RacerBuilder racerBuilder = new RacerBuilder();
-		List<Racer> racerList = racerBuilder.buildRacers();
 		TableModel drm = new BestLapTableModel();
-		List<String>expected = Arrays.asList("01:25.093");
+		String expected = "01:25.093";
 
 		System.out.println(drm.createTableModel().stream()
 				.map(racer -> racer.getBestLap())

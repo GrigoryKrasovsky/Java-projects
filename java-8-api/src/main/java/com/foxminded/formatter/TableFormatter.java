@@ -3,6 +3,7 @@ package com.foxminded.formatter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.StringJoiner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.foxminded.model.BestLapTableModel;
 import com.foxminded.model.TableModel;
@@ -13,26 +14,33 @@ public class TableFormatter {
 	public TableFormatter(String type) {
 		this.type = type;
 	}
-	
-	
-	
+
 	public String formatTable() throws URISyntaxException, IOException {
 		RowFormatter formatter;
 		TableModel model;
+		TableHeaderAndDelimiterLine headerAndDelimiter;
+		String title;
+		AtomicInteger i = new AtomicInteger(0);
 		if(this.type.equals("Best Lap")) {
 			formatter = new BestLapRowFormatter();
 			model = new BestLapTableModel();
-			
-			System.out.println("According to the Best Lap:\n\n");
+			headerAndDelimiter = new BestLapTableHeaderAndDelimiterLine();
+			title = "According to the Best Lap:\n";
 		}else {
 			model = new BestLapTableModel();
 			formatter = new BestLapRowFormatter();
+			headerAndDelimiter = new BestLapTableHeaderAndDelimiterLine();
+			title = "According to the Best Lap:\n";
 		}
 		
 		StringJoiner sj = new StringJoiner("\n");
 		
-		model.createTableModel().stream()
-		.forEach(racer -> sj.add(formatter.format(racer)));
+		sj.add(title).add(headerAndDelimiter.buildHeader());
+		model.createTableModel().stream().limit(16)
+		.forEach(racer -> sj.add(formatter.format(i.getAndIncrement(), racer)));
+		sj.add(headerAndDelimiter.buildDelimiter());
+		model.createTableModel().stream().skip(16)
+		.forEach(racer -> sj.add(formatter.format(i.getAndIncrement(), racer)));
 		
 		return sj.toString();
 	}

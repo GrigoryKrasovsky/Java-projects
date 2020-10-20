@@ -14,7 +14,6 @@ public class Racer {
 	private final List<LocalTime> startTime;
 	private final List<LocalTime> endTime;
 	private final List<LocalDate> date;
-	//private final List<Long> lapTime;
 
 	
 	public Racer(String abbreviation,
@@ -29,7 +28,6 @@ public class Racer {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
-		//this.lapTime = Utilities.findLapTime(startTime,endTime);
 
 	}
 	
@@ -71,7 +69,7 @@ public class Racer {
 		if(endTime == null) {
 			return (T) String.format("%s has not completed any laps", this.getName());
 		}
-		return (T)Utilities.convertLongToTime(Arrays.asList(Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime))));
+		return (T)Utilities.convertLongToTime(Arrays.asList(Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime)))).get(0);
 	}
 	public <T> T getBestLapInLong() {
 		if(endTime == null) {

@@ -33,7 +33,7 @@ class RacerTest {
 		List<LocalDate> localDate = Arrays.asList(LocalDate.parse("2018-05-24", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 		
 		Racer racer = new Racer("DRR", "Daniel Ricciardo", "RED BULL RACING TAG HEUER", startTime, endTime, localDate);
-		List<String> expected = Arrays.asList("02:06.000");
+		String expected = "02:06.000";
 		assertEquals(expected, racer.getBestLap());
 	}
 	@Test
