@@ -21,7 +21,7 @@ class UtilitiesTest {
 		
 		String expected = "01:13.323";
 		
-		assertEquals(expected, Utilities.convertLongToTime(test).get(0).toString());
+		assertEquals(expected, Utilities.convertLongToString(test).get(0).toString());
 	}
 	
 	@Test

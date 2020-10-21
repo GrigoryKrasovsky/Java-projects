@@ -5,6 +5,9 @@ import java.net.URISyntaxException;
 import java.util.StringJoiner;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.foxminded.formatter.header_delimiter.AverageLapTimeTableHeaderAndDelimiterLine;
+import com.foxminded.formatter.row_formatter.AverageLapTimeRowFormatter;
+import com.foxminded.model.AverageLapTimeTableModel;
 import com.foxminded.model.BestLapTableModel;
 import com.foxminded.model.NamesInAlphabeticalOrderTableModel;
 import com.foxminded.model.TableModel;
@@ -27,6 +30,11 @@ public class TableFormatter {
 			model = new BestLapTableModel();
 			headerAndDelimiter = new NumberOfLapsTableHeaderAndDelimiterLine();
 			title = "According to the Best Lap:\n";
+		}else if(this.type.equals("Average")){
+			model = new AverageLapTimeTableModel();
+			formatter = new AverageLapTimeRowFormatter();
+			headerAndDelimiter = new AverageLapTimeTableHeaderAndDelimiterLine();
+			title = "Racers in average lap time order:\n";
 		}else if(this.type.equals("Alphabetical order")){
 			model = new NamesInAlphabeticalOrderTableModel();
 			formatter = new NamesInAlphabeticalOrderRowFormatter();

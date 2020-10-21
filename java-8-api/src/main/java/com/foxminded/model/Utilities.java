@@ -18,7 +18,7 @@ public class Utilities {
 		throw new IllegalStateException("Utility class");
 	}
 	
-	public static List<String> convertLongToTime(List<Long> input) {
+	public static List<String> convertLongToString(List<Long> input) {
 		return input.stream()
 		.map(element -> String.format("%1$tM:%1$tS.%1$tL", element))
 		.collect(Collectors.toList());
@@ -37,5 +37,9 @@ public class Utilities {
 		return list.stream()
 				.mapToLong(element -> element)
 				.min().orElseThrow(NoSuchElementException::new);
+	}
+	public static Long findAverage(List<Long>list) {
+		return list.stream()
+		.reduce(0L, Long::sum)/list.size();
 	}
 }

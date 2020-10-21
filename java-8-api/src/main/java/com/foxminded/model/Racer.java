@@ -35,8 +35,17 @@ public class Racer {
 		return abbreviation;
 	}
 	
-	public List<String> getLapList() {
-		return Utilities.convertLongToTime(Utilities.findLapTime(startTime,endTime));
+	public List<String> getLapTimeList() {
+		return Utilities.convertLongToString(Utilities.findLapTime(startTime,endTime));
+	}
+	public String getAverageLapTime() {
+		if(endTime == null) {
+			return String.format("%s has not completed any laps", this.getName());
+		}
+		return Utilities.convertLongToString(Arrays.asList(Utilities.findAverage(Utilities.findLapTime(startTime,endTime)))).get(0);
+	}
+	public Long getAverageLapTimeInLong() {
+		return Arrays.asList(Utilities.findAverage(Utilities.findLapTime(startTime,endTime))).get(0);
 	}
 	
 	public List<Long> getLapInLong() {
@@ -68,16 +77,16 @@ public class Racer {
 		}
 		return endTime.size();
 	}
-	public <T> T getBestLap() {
+	public String getBestLap() {
 		if(endTime == null) {
-			return (T) String.format("%s has not completed any laps", this.getName());
+			return String.format("%s has not completed any laps", this.getName());
 		}
-		return (T)Utilities.convertLongToTime(Arrays.asList(Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime)))).get(0);
+		return Utilities.convertLongToString(Arrays.asList(Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime)))).get(0);
 	}
-	public <T> T getBestLapInLong() {
+	public Long getBestLapInLong() {
 		if(endTime == null) {
 			return null;
 		}
-		return (T)Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime));
+		return Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime));
 	}
 }

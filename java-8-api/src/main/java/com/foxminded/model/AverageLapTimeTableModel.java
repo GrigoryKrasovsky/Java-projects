@@ -12,11 +12,18 @@ public class AverageLapTimeTableModel implements TableModel{
 
 	@Override
 	public List<Racer> createTableModel() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();	
+		RacerBuilder racerBuilder = new RacerBuilder();
 		
-		return racerBuilder.buildRacers().stream()
+		
+		List<Racer> result = racerBuilder.buildRacers().stream()
 				.filter(racer -> racer.getEndTime()!=null)
-				.sorted(Comparator.comparingInt(Racer::findNumberOfLaps).reversed())
+				.sorted(Comparator.comparingLong(Racer::getAverageLapTimeInLong))
 				.collect(Collectors.toList());
+		List<Racer> badRacers = racerBuilder.buildRacers().stream()
+				.filter(racer -> racer.getEndTime()==null)
+				.collect(Collectors.toList());
+		badRacers.stream()
+				.forEach(i ->result.add(i));
+		return result;
 	}
 }

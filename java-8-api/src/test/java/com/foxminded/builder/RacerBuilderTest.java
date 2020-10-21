@@ -54,7 +54,7 @@ class RacerBuilderTest {
 	void shouldVerifyCorrectLapReturned() throws URISyntaxException, IOException {
 		RacerBuilder racerBuilder = new RacerBuilder();
 		String expected = "01:26.347";
-		assertEquals(expected,racerBuilder.buildRacers().get(10).getLapList().get(0).toString());
+		assertEquals(expected,racerBuilder.buildRacers().get(10).getLapTimeList().get(0).toString());
 	}
 	@Test
 	void shouldVerifyCorrectTeamReturned() throws URISyntaxException, IOException {
@@ -67,5 +67,17 @@ class RacerBuilderTest {
 		RacerBuilder racerBuilder = new RacerBuilder();
 		Integer expected = 2;
 		assertEquals(expected, racerBuilder.buildRacers().get(10).findNumberOfLaps());
+	}
+	@Test
+	void shouldVerifyCorrectAverageLapTime() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		String expected = "01:26.552";
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getAverageLapTime());
+	}
+	@Test
+	void shouldVerifyCorrectAverageLapTimeInList() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		Long expected = 86552L;
+		assertEquals(expected, racerBuilder.buildRacers().get(10).getAverageLapTimeInLong());
 	}
 }
