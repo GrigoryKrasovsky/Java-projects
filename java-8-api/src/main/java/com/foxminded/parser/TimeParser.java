@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.foxminded.model.DateAndTimeInfo;
+import com.foxminded.model.name_team_date_time_info.DateAndTimeInfo;
 
 public class TimeParser implements Parser {
 	

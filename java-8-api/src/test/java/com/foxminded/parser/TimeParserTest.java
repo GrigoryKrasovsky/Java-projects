@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import com.foxminded.model.DateAndTimeInfo;
+import com.foxminded.model.name_team_date_time_info.DateAndTimeInfo;
 
 class TimeParserTest {
 

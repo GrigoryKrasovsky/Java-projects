@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.foxminded.model.DateAndTimeInfo;
-import com.foxminded.model.NameAndTeamInfo;
 import com.foxminded.model.Racer;
+import com.foxminded.model.name_team_date_time_info.DateAndTimeInfo;
+import com.foxminded.model.name_team_date_time_info.NameAndTeamInfo;
 import com.foxminded.parser.Parser;
 import com.foxminded.parser.RacerInfoParser;
 import com.foxminded.parser.TimeParser;

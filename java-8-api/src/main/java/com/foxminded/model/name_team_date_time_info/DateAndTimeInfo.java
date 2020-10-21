@@ -1,4 +1,4 @@
-package com.foxminded.model;
+package com.foxminded.model.name_team_date_time_info;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

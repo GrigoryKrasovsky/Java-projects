@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
-import com.foxminded.model.NameAndTeamInfo;
+import com.foxminded.model.name_team_date_time_info.NameAndTeamInfo;
 
 class RacerInfoParserTest {
 
