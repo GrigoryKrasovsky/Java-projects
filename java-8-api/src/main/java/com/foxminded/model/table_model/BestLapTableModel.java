@@ -1,4 +1,4 @@
-package com.foxminded.model;
+package com.foxminded.model.table_model;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.foxminded.builder.RacerBuilder;
+import com.foxminded.model.Racer;
 
 public class BestLapTableModel implements TableModel{
 

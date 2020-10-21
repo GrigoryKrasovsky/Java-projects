@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.model.table_model.BestLapTableModel;
+import com.foxminded.model.table_model.TableModel;
+
 class AverageLapTimeTableModelTest {
 	
 	@Test

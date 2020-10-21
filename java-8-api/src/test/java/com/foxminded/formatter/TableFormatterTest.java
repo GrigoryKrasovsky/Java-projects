@@ -7,8 +7,8 @@ import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Test;
 
-import com.foxminded.model.BestLapTableModel;
-import com.foxminded.model.TableModel;
+import com.foxminded.model.table_model.BestLapTableModel;
+import com.foxminded.model.table_model.TableModel;
 
 class TableFormatterTest {
 

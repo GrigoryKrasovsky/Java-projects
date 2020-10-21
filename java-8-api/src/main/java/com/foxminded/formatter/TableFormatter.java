@@ -15,10 +15,10 @@ import com.foxminded.formatter.row_formatter.BestLapRowFormatter;
 import com.foxminded.formatter.row_formatter.NamesInAlphabeticalOrderRowFormatter;
 import com.foxminded.formatter.row_formatter.NumberOfLapsRowFormatter;
 import com.foxminded.formatter.row_formatter.RowFormatter;
-import com.foxminded.model.AverageLapTimeTableModel;
-import com.foxminded.model.BestLapTableModel;
-import com.foxminded.model.NamesInAlphabeticalOrderTableModel;
-import com.foxminded.model.TableModel;
+import com.foxminded.model.table_model.AverageLapTimeTableModel;
+import com.foxminded.model.table_model.BestLapTableModel;
+import com.foxminded.model.table_model.NamesInAlphabeticalOrderTableModel;
+import com.foxminded.model.table_model.TableModel;
 
 public class TableFormatter {
 	private String type;
