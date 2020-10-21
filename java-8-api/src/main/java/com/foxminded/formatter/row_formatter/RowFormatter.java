@@ -1,4 +1,4 @@
-package com.foxminded.formatter;
+package com.foxminded.formatter.row_formatter;
 
 import com.foxminded.model.Racer;
 

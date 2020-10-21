@@ -1,4 +1,4 @@
-package com.foxminded.formatter;
+package com.foxminded.formatter.header_delimiter;
 
 public interface TableHeaderAndDelimiterLine {
 	public String buildHeader();

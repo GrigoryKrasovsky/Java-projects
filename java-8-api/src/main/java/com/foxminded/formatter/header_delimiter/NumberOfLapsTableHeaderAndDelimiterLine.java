@@ -3,8 +3,6 @@ package com.foxminded.formatter.header_delimiter;
 import java.util.Collections;
 import java.util.StringJoiner;
 
-import com.foxminded.formatter.TableHeaderAndDelimiterLine;
-
 public class NumberOfLapsTableHeaderAndDelimiterLine implements TableHeaderAndDelimiterLine{
 
 	@Override
