@@ -1,4 +1,4 @@
-package com.foxminded.model;
+package com.foxminded.model.table_model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.model.Racer;
 import com.foxminded.model.table_model.NamesInAlphabeticalOrderTableModel;
 import com.foxminded.model.table_model.TableModel;
 

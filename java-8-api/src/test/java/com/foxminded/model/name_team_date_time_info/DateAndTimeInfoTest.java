@@ -1,4 +1,4 @@
-package com.foxminded.model;
+package com.foxminded.model.name_team_date_time_info;
 
 import static org.junit.jupiter.api.Assertions.*;
 
