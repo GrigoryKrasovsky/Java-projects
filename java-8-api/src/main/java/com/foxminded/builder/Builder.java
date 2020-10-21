@@ -9,9 +9,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.foxminded.model.Racer;
+import com.foxminded.model.Team;
 import com.foxminded.model.name_team_date_time_info.DateAndTimeInfo;
 import com.foxminded.model.name_team_date_time_info.NameAndTeamInfo;
 import com.foxminded.parser.Parser;
@@ -59,4 +62,17 @@ public class Builder {
 		
 		return allRacers;
 	}
+	
+	public List<Team> buildListOfTeams() throws URISyntaxException, IOException{
+		
+		Map<String, List<String>> map = buildListOfRacers().stream()
+		.collect(Collectors.groupingBy(Racer::getTeam,
+				Collectors.mapping(Racer::getName, Collectors.toList())));
+		
+		return map.entrySet().stream()
+		.map(entry -> new Team(entry.getKey(),entry.getValue()))
+		.collect(Collectors.toList());	
+	}
 }
+
+

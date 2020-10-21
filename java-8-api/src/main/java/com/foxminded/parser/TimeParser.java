@@ -19,6 +19,8 @@ import com.foxminded.model.name_team_date_time_info.DateAndTimeInfo;
 public class TimeParser implements Parser {
 	
 		private final Path path;
+		private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+		private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
 	public TimeParser(Path path) {
 		this.path = path;	
@@ -33,8 +35,8 @@ public class TimeParser implements Parser {
 
 		return lines.collect(Collectors.toMap(
 				string -> string.substring(0,3),
-				string -> new DateAndTimeInfo(LocalTime.from(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").parse((string.substring(3).split("_")[1]))),
-						LocalDate.parse(string.substring(3).split("_")[0], DateTimeFormatter.ofPattern("yyyy-MM-dd"))),
+				string -> new DateAndTimeInfo(LocalTime.from(TIME_FORMATTER.parse((string.substring(3).split("_")[1]))),
+						LocalDate.parse(string.substring(3).split("_")[0], DATE_FORMATTER)),
 				(string1, string2)->string1.addAnotherLapTime(string2)));
 		}
 	}
