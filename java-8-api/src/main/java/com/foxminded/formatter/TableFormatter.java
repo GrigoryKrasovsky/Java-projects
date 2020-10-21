@@ -20,6 +20,7 @@ import com.foxminded.formatter.row_formatter.TeamRacersCountRowFormatter;
 import com.foxminded.model.table_model.AverageLapTimeTableModel;
 import com.foxminded.model.table_model.BestLapTableModel;
 import com.foxminded.model.table_model.NamesInAlphabeticalOrderTableModel;
+import com.foxminded.model.table_model.NumberOfLapsTableModel;
 import com.foxminded.model.table_model.TableModel;
 import com.foxminded.model.table_model.TeamRacersCountTableModel;
 
@@ -39,9 +40,9 @@ public class TableFormatter {
 		
 		if(this.type.equals("Racers lap count")) {
 			formatter = new NumberOfLapsRowFormatter();
-			model = new BestLapTableModel();
+			model = new NumberOfLapsTableModel();
 			headerAndDelimiter = new NumberOfLapsTableHeaderAndDelimiterLine();
-			title = "According to the Best Lap:\n";
+			title = "According to the lap count:\n";
 			
 		}else if(this.type.equals("Racers avg lap time")){
 			model = new AverageLapTimeTableModel();
