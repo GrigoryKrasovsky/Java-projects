@@ -80,10 +80,5 @@ class RacerBuilderTest {
 		Long expected = 86552L;
 		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getAverageLapTimeInLong());
 	}
-	@Test
-	void shouldVerifyCorrectAverageLapTimeInList1() throws URISyntaxException, IOException {
-		Builder racerBuilder = new Builder();
-		Long expected = 86552L;
-		assertEquals(expected, racerBuilder.buildListOfTeams());
-	}
+
 }

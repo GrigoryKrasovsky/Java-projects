@@ -18,10 +18,11 @@ class BestLapTableModelTest {
 
 	@Test
 	void shouldVerifyCorrectTimeAndDateOutput() throws IOException, URISyntaxException {
-		TableModel drm = new BestLapTableModel();
+		TableModel model = new BestLapTableModel();
 		String expected = "01:25.093";
-		
-		assertEquals(expected,drm.createTableModel().stream()
+		@SuppressWarnings("unchecked")
+		List<Racer> list = (List<Racer>) model.createTableModel();
+		assertEquals(expected, list.stream()
 				.map(racer -> racer.getBestLap())
 				.collect(Collectors.toList()).get(0));
 	}

@@ -7,13 +7,13 @@ import com.foxminded.model.Racer;
 public class  AverageLapTimeRowFormatter implements RowFormatter{
 
 	@Override
-	public String format(Integer i, Racer racer) {
+	public String format(Integer i, Object racer) {
 		
 		StringJoiner sj = new StringJoiner("|");
 		sj.add(String.format("%-3s", String.valueOf(i)))
-		.add(String.format("%-25s", racer.getName()))
-		.add(String.format("%-30s",racer.getTeam()))
-		.add(racer.getAverageLapTime());
+		.add(String.format("%-25s", ((Racer) racer).getName()))
+		.add(String.format("%-30s",((Racer) racer).getTeam()))
+		.add(((Racer) racer).getAverageLapTime());
 		return sj.toString();	
 	}
 }

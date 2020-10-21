@@ -12,7 +12,7 @@ import com.foxminded.model.Racer;
 public class NamesInAlphabeticalOrderTableModel implements TableModel{
 
 	@Override
-	public List<Racer> createTableModel() throws URISyntaxException, IOException {
+	public List<?> createTableModel() throws URISyntaxException, IOException {
 		Builder racerBuilder = new Builder();
 		
 		return racerBuilder.buildListOfRacers().stream()
