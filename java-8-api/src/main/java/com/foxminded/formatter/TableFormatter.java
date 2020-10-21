@@ -6,6 +6,7 @@ import java.util.StringJoiner;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.foxminded.model.BestLapTableModel;
+import com.foxminded.model.NamesInAlphabeticalOrderTableModel;
 import com.foxminded.model.TableModel;
 
 public class TableFormatter {
@@ -26,9 +27,14 @@ public class TableFormatter {
 			model = new BestLapTableModel();
 			headerAndDelimiter = new BestLapTableHeaderAndDelimiterLine();
 			title = "According to the Best Lap:\n";
+		}else if(this.type.equals("Alphabetical order")){
+			model = new NamesInAlphabeticalOrderTableModel();
+			formatter = new NamesInAlphabeticalOrderRowFormatter();
+			headerAndDelimiter = new NamesInAlphabeticalOrderTableHeaderAndDelimiterLine();
+			title = "Racers in alphabetical order:\n";
 		}else {
-			model = new BestLapTableModel();
 			formatter = new BestLapRowFormatter();
+			model = new BestLapTableModel();
 			headerAndDelimiter = new BestLapTableHeaderAndDelimiterLine();
 			title = "According to the Best Lap:\n";
 		}
