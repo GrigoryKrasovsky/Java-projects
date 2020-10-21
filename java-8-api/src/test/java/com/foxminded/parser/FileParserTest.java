@@ -15,7 +15,7 @@ class FileParserTest {
 	void shouldVerifyCorrectgetRacersOutput() throws IOException, URISyntaxException {
 		
 		Path path = Paths.get(getClass().getClassLoader()
-			      .getResource("abbreviations.txt").toURI());
+			      .getResource("abbreviations1.txt").toURI());
 		Parser fp = new RacerInfoParser(path);
 		String expected = "12:14:12.054";
 		assertTrue(fp.parse().containsKey("VBM"));

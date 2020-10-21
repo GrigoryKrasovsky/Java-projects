@@ -18,7 +18,7 @@ class RacerInfoParserTest {
 	void shouldVerifyCorrectRacerInfo() throws IOException, URISyntaxException {
 		
 		Path path = Paths.get(getClass().getClassLoader()
-			      .getResource("abbreviations.txt").toURI());
+			      .getResource("abbreviations1.txt").toURI());
 		Parser fp = new RacerInfoParser(path);
 		assertTrue(fp.parse().containsKey("VBM"));
 		NameAndTeamInfo nameAndTeamInfo = (NameAndTeamInfo)fp.parse().get("VBM");
