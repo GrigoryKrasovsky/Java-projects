@@ -16,7 +16,6 @@ public class NumberOfLapsTableModel implements TableModel{
 		Builder racerBuilder = new Builder();	
 		
 		return racerBuilder.buildListOfRacers().stream()
-				.filter(racer -> racer.getEndTime()!=null)
 				.sorted(Comparator.comparingInt(Racer::findNumberOfLaps).reversed())
 				.collect(Collectors.toList());
 	}

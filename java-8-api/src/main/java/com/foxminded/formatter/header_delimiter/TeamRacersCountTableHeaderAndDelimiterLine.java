@@ -22,6 +22,6 @@ public class TeamRacersCountTableHeaderAndDelimiterLine implements TableHeaderAn
 
 	@Override
 	public String buildDelimiter() {
-		return String.join("", Collections.nCopies(57, "-"));
+		return String.join("", Collections.nCopies(0, "-"));
 	}
 }

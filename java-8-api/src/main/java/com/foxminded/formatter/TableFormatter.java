@@ -48,7 +48,7 @@ public class TableFormatter {
 			model = new AverageLapTimeTableModel();
 			formatter = new AverageLapTimeRowFormatter();
 			headerAndDelimiter = new AverageLapTimeTableHeaderAndDelimiterLine();
-			title = "Racers in average lap time order:\n";
+			title = "Racers according to average lap time:\n";
 			
 		}else if(this.type.equals("Racers names")){
 			model = new NamesInAlphabeticalOrderTableModel();

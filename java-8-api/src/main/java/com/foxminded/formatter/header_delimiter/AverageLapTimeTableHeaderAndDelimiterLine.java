@@ -14,16 +14,16 @@ public class AverageLapTimeTableHeaderAndDelimiterLine implements TableHeaderAnd
 		String no = "No.";
 		String name = "NAME";
 		String team = "TEAM";
-		String lapCount = "LAPS NUMBER";
+		String lapCount = "AVERAGE TIME";
 		sj.add(String.format(SMALL_INDENTATION, no))
 		.add(String.format(INDENTATION, name))
-		.add(String.format(INDENTATION, team))
+		.add(String.format("%-30s", team))
 		.add(String.format(INDENTATION, lapCount));
 		return sj.toString();
 	}
 
 	@Override
 	public String buildDelimiter() {
-		return String.join("", Collections.nCopies(57, "-"));
+		return String.join("", Collections.nCopies(70, "-"));
 	}
 }
