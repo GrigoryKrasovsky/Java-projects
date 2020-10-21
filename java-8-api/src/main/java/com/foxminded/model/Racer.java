@@ -63,6 +63,9 @@ public class Racer {
 		return date.get(0);
 	}
 	public Integer findNumberOfLaps() {
+		if(endTime == null) {
+			return 0;
+		}
 		return endTime.size();
 	}
 	public <T> T getBestLap() {
@@ -73,7 +76,7 @@ public class Racer {
 	}
 	public <T> T getBestLapInLong() {
 		if(endTime == null) {
-			return (T) String.format("%s has not completed any laps", this.getName());
+			return null;
 		}
 		return (T)Utilities.findMinNumber(Utilities.findLapTime(startTime,endTime));
 	}

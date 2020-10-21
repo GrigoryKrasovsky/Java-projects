@@ -22,10 +22,10 @@ public class TableFormatter {
 		TableHeaderAndDelimiterLine headerAndDelimiter;
 		String title;
 		AtomicInteger i = new AtomicInteger(0);
-		if(this.type.equals("Best Lap")) {
-			formatter = new BestLapRowFormatter();
+		if(this.type.equals("Lap count")) {
+			formatter = new NumberOfLapsRowFormatter();
 			model = new BestLapTableModel();
-			headerAndDelimiter = new BestLapTableHeaderAndDelimiterLine();
+			headerAndDelimiter = new NumberOfLapsTableHeaderAndDelimiterLine();
 			title = "According to the Best Lap:\n";
 		}else if(this.type.equals("Alphabetical order")){
 			model = new NamesInAlphabeticalOrderTableModel();

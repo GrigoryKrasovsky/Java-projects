@@ -48,6 +48,5 @@ class RacerTest {
 		String expected = "Daniel Ricciardo has not completed any laps";
 		assertEquals(expected, racer.getBestLap());
 	}
-
-
+	
 }

@@ -8,7 +8,7 @@ import com.foxminded.formatter.TableFormatter;
 public class Java8APIApp {
 
 	public static void main(String[] args) throws URISyntaxException, IOException {
-		TableFormatter tf = new TableFormatter("Alphabetical order");
+		TableFormatter tf = new TableFormatter("Lap count");
 		System.out.println(tf.formatTable());
 	}
 }

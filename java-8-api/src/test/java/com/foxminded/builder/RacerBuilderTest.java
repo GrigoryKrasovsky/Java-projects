@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.AbstractMap;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -60,5 +61,11 @@ class RacerBuilderTest {
 		RacerBuilder racerBuilder = new RacerBuilder();
 		String expected = "HAAS FERRARI";
 		assertEquals(expected, racerBuilder.buildRacers().get(10).getTeam());
+	}
+	@Test
+	void shouldVerifyCorrectLapsNumber() throws URISyntaxException, IOException {
+		RacerBuilder racerBuilder = new RacerBuilder();
+		Integer expected = 2;
+		assertEquals(expected, racerBuilder.buildRacers().get(10).findNumberOfLaps());
 	}
 }
