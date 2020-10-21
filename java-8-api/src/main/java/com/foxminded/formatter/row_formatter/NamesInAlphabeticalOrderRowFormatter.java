@@ -1,6 +1,8 @@
-package com.foxminded.formatter;
+package com.foxminded.formatter.row_formatter;
 
 import java.util.StringJoiner;
+
+import com.foxminded.formatter.RowFormatter;
 import com.foxminded.model.Racer;
 
 public class NamesInAlphabeticalOrderRowFormatter implements RowFormatter{

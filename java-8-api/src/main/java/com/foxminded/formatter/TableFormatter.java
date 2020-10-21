@@ -6,7 +6,13 @@ import java.util.StringJoiner;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.foxminded.formatter.header_delimiter.AverageLapTimeTableHeaderAndDelimiterLine;
+import com.foxminded.formatter.header_delimiter.BestLapTableHeaderAndDelimiterLine;
+import com.foxminded.formatter.header_delimiter.NamesInAlphabeticalOrderTableHeaderAndDelimiterLine;
+import com.foxminded.formatter.header_delimiter.NumberOfLapsTableHeaderAndDelimiterLine;
 import com.foxminded.formatter.row_formatter.AverageLapTimeRowFormatter;
+import com.foxminded.formatter.row_formatter.BestLapRowFormatter;
+import com.foxminded.formatter.row_formatter.NamesInAlphabeticalOrderRowFormatter;
+import com.foxminded.formatter.row_formatter.NumberOfLapsRowFormatter;
 import com.foxminded.model.AverageLapTimeTableModel;
 import com.foxminded.model.BestLapTableModel;
 import com.foxminded.model.NamesInAlphabeticalOrderTableModel;

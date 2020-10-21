@@ -8,7 +8,7 @@ import com.foxminded.formatter.TableFormatter;
 public class Java8APIApp {
 
 	public static void main(String[] args) throws URISyntaxException, IOException {
-		TableFormatter tf = new TableFormatter("Average");
+		TableFormatter tf = new TableFormatter("Best Lap");
 		System.out.println(tf.formatTable());
 	}
 }
