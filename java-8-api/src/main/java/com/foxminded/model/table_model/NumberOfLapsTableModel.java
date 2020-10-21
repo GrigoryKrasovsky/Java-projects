@@ -6,16 +6,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.foxminded.builder.RacerBuilder;
+import com.foxminded.builder.Builder;
 import com.foxminded.model.Racer;
 
 public class NumberOfLapsTableModel implements TableModel{
 
 	@Override
 	public List<Racer> createTableModel() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();	
+		Builder racerBuilder = new Builder();	
 		
-		return racerBuilder.buildRacers().stream()
+		return racerBuilder.buildListOfRacers().stream()
 				.filter(racer -> racer.getEndTime()!=null)
 				.sorted(Comparator.comparingInt(Racer::findNumberOfLaps).reversed())
 				.collect(Collectors.toList());

@@ -18,8 +18,8 @@ import com.foxminded.parser.Parser;
 import com.foxminded.parser.RacerInfoParser;
 import com.foxminded.parser.TimeParser;
 
-public class RacerBuilder {
-	public List<Racer> buildRacers () throws URISyntaxException, IOException {
+public class Builder {
+	public List<Racer> buildListOfRacers () throws URISyntaxException, IOException {
 
 		Parser racerInfoParser = new RacerInfoParser(Paths.get(getClass().getClassLoader()
 			      .getResource("abbreviations1.txt").toURI()));

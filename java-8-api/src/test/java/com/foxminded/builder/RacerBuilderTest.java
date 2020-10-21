@@ -22,62 +22,62 @@ class RacerBuilderTest {
 
 	@Test
 	void shouldVerifyCorrectAbbreviationReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "RGH";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getAbbreviation());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getAbbreviation());
 	}
 	@Test
 	void shouldVerifyCorrectNameReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "Romain Grosjean";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getName());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getName());
 	}
 	@Test
 	void shouldVerifyCorrectDateReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "2019-07-12";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getDate().toString());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getDate().toString());
 	}
 	@Test
 	void shouldVerifyCorrectStartTimeReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "12:29:28.352";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getStartTime().get(0).toString());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getStartTime().get(0).toString());
 	}
 	@Test
 	void shouldVerifyCorrectEndtimeReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "12:30:54.699";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getEndTime().get(0).toString());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getEndTime().get(0).toString());
 	}
 	@Test
 	void shouldVerifyCorrectLapReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "01:26.347";
-		assertEquals(expected,racerBuilder.buildRacers().get(10).getLapTimeList().get(0).toString());
+		assertEquals(expected,racerBuilder.buildListOfRacers().get(10).getLapTimeList().get(0).toString());
 	}
 	@Test
 	void shouldVerifyCorrectTeamReturned() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "HAAS FERRARI";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getTeam());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getTeam());
 	}
 	@Test
 	void shouldVerifyCorrectLapsNumber() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		Integer expected = 2;
-		assertEquals(expected, racerBuilder.buildRacers().get(10).findNumberOfLaps());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).findNumberOfLaps());
 	}
 	@Test
 	void shouldVerifyCorrectAverageLapTime() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		String expected = "01:26.552";
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getAverageLapTime());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getAverageLapTime());
 	}
 	@Test
 	void shouldVerifyCorrectAverageLapTimeInList() throws URISyntaxException, IOException {
-		RacerBuilder racerBuilder = new RacerBuilder();
+		Builder racerBuilder = new Builder();
 		Long expected = 86552L;
-		assertEquals(expected, racerBuilder.buildRacers().get(10).getAverageLapTimeInLong());
+		assertEquals(expected, racerBuilder.buildListOfRacers().get(10).getAverageLapTimeInLong());
 	}
 }

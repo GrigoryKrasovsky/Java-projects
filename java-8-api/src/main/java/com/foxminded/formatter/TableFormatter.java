@@ -10,15 +10,18 @@ import com.foxminded.formatter.header_delimiter.BestLapTableHeaderAndDelimiterLi
 import com.foxminded.formatter.header_delimiter.NamesInAlphabeticalOrderTableHeaderAndDelimiterLine;
 import com.foxminded.formatter.header_delimiter.NumberOfLapsTableHeaderAndDelimiterLine;
 import com.foxminded.formatter.header_delimiter.TableHeaderAndDelimiterLine;
+import com.foxminded.formatter.header_delimiter.TeamRacersCountTableHeaderAndDelimiterLine;
 import com.foxminded.formatter.row_formatter.AverageLapTimeRowFormatter;
 import com.foxminded.formatter.row_formatter.BestLapRowFormatter;
 import com.foxminded.formatter.row_formatter.NamesInAlphabeticalOrderRowFormatter;
 import com.foxminded.formatter.row_formatter.NumberOfLapsRowFormatter;
 import com.foxminded.formatter.row_formatter.RowFormatter;
+import com.foxminded.formatter.row_formatter.TeamRacersCountRowFormatter;
 import com.foxminded.model.table_model.AverageLapTimeTableModel;
 import com.foxminded.model.table_model.BestLapTableModel;
 import com.foxminded.model.table_model.NamesInAlphabeticalOrderTableModel;
 import com.foxminded.model.table_model.TableModel;
+import com.foxminded.model.table_model.TeamRacersCountTableModel;
 
 public class TableFormatter {
 	private String type;
@@ -33,21 +36,31 @@ public class TableFormatter {
 		TableHeaderAndDelimiterLine headerAndDelimiter;
 		String title;
 		AtomicInteger i = new AtomicInteger(0);
-		if(this.type.equals("Lap count")) {
+		
+		if(this.type.equals("Racers lap count")) {
 			formatter = new NumberOfLapsRowFormatter();
 			model = new BestLapTableModel();
 			headerAndDelimiter = new NumberOfLapsTableHeaderAndDelimiterLine();
 			title = "According to the Best Lap:\n";
-		}else if(this.type.equals("Average")){
+			
+		}else if(this.type.equals("Racers avg lap time")){
 			model = new AverageLapTimeTableModel();
 			formatter = new AverageLapTimeRowFormatter();
 			headerAndDelimiter = new AverageLapTimeTableHeaderAndDelimiterLine();
 			title = "Racers in average lap time order:\n";
-		}else if(this.type.equals("Alphabetical order")){
+			
+		}else if(this.type.equals("Racers names")){
 			model = new NamesInAlphabeticalOrderTableModel();
 			formatter = new NamesInAlphabeticalOrderRowFormatter();
 			headerAndDelimiter = new NamesInAlphabeticalOrderTableHeaderAndDelimiterLine();
 			title = "Racers in alphabetical order:\n";
+			
+		}else if(this.type.equals("Team racers count")){
+			model = new TeamRacersCountTableModel();
+			formatter = new TeamRacersCountRowFormatter();
+			headerAndDelimiter = new TeamRacersCountTableHeaderAndDelimiterLine();
+			title = "Teams according to the number of racers in them:\n";
+			
 		}else {
 			formatter = new BestLapRowFormatter();
 			model = new BestLapTableModel();
